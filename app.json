@@ -1,0 +1,12 @@
+{
+  "name": "enlish",
+  "displayName": "enlish",
+  "expo": {
+    "name": "enlish",
+    "slug": "enlish",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
