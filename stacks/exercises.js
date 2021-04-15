@@ -3,7 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import RouteHome from "../screen/index";
 import RouteExercises from "../screen/exercises";
 import RouteExercise from "../screen/exercise";
-import RouteAudio from "../screen/audio";
+import RouteAudio from "../screen/audios";
 
 
 const Stack = createStackNavigator();

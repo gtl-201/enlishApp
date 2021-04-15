@@ -2,7 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import RouteIndex from "../screen/index";
 import RouteExercises from "../screen/exercises";
-import RouteAudio from "../screen/audio";
+import RouteAudio from "../screen/audios";
 
 
 const Stack = createStackNavigator();

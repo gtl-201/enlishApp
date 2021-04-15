@@ -1,0 +1,52 @@
+{
+  "practiseDB": [
+    { "id": "unit 1", "easy": "0", "hard": "0" },
+    { "id": "unit 2", "easy": "0", "hard": "0" },
+    { "id": "unit 3", "easy": "0", "hard": "0" },
+    { "id": "unit 4", "easy": "0", "hard": "0" },
+    { "id": "unit 5", "easy": "0", "hard": "0" },
+    { "id": "unit 6", "easy": "0", "hard": "0" },
+    { "id": "unit 7", "easy": "0", "hard": "0" },
+    { "id": "unit 8", "easy": "0", "hard": "0" },
+    { "id": "unit 9", "easy": "0", "hard": "0" },
+    { "id": "unit 10", "easy": "0", "hard": "0" },
+    { "id": "unit 11", "easy": "0", "hard": "0" },
+    { "id": "unit 12", "easy": "0", "hard": "0" },
+    { "id": "unit 13", "easy": "0", "hard": "0" },
+    { "id": "unit 14", "easy": "0", "hard": "0" }
+  ],
+
+  "exerciseDB": [
+    { "id": "Unit1", "VA": "0", "AV": "0", "L": "0" },
+    { "id": "Unit2", "VA": "0", "AV": "0", "L": "0" },
+    { "id": "Unit3", "VA": "0", "AV": "0", "L": "0" },
+    { "id": "Unit4", "VA": "0", "AV": "0", "L": "0" },
+    { "id": "Unit5", "VA": "0", "AV": "0", "L": "0" },
+    { "id": "Unit6", "VA": "100", "AV": "99", "L": "99" },
+    { "id": "Unit7", "VA": "0", "AV": "0", "L": "0" },
+    { "id": "Unit8", "VA": "0", "AV": "0", "L": "0" },
+    { "id": "Unit9", "VA": "0", "AV": "0", "L": "0" },
+    { "id": "Unit10", "VA": "0", "AV": "0", "L": "0" },
+    { "id": "Unit11", "VA": "0", "AV": "0", "L": "0" },
+    { "id": "Unit12", "VA": "0", "AV": "0", "L": "0" },
+    { "id": "Unit13", "VA": "0", "AV": "0", "L": "0" },
+    { "id": "Unit14", "VA": "0", "AV": "0", "L": "0" }
+  ],
+
+  "audioDB":[
+    { "id": "unit 1" },
+    { "id": "unit 2" },
+    { "id": "unit 3" },
+    { "id": "unit 4" },
+    { "id": "unit 5" },
+    { "id": "unit 6" },
+    { "id": "unit 7" },
+    { "id": "unit 8" },
+    { "id": "unit 9" },
+    { "id": "unit 10" },
+    { "id": "unit 11" },
+    { "id": "unit 12" },
+    { "id": "unit 13" },
+    { "id": "unit 14" }
+  ]
+}
