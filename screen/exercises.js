@@ -1,9 +1,10 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState }  from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
 
-const Exercise = ({ navigation }) => {
+const Exercise = (props) => {
+  const { navigation } = props;
 
   const [isLoading, setLoading] = useState(true);
   const [Exercises, setData] = useState([]);
@@ -27,59 +28,181 @@ const Exercise = ({ navigation }) => {
 
   // const navigation = props;
 
+  const MainBox = (props) => {
+    const { item } = props;
+
+    const AV = ({ item }) => {
+      return item.AV > 79 ? (
+        <Text style={{ color: "#12ff12" }}>{item.AV}%</Text>
+      ) : item.AV > 59 ? (
+        <Text style={{ color: "#ff6a00" }}>{item.AV}%</Text>
+      ) : (
+        <Text style={{ color: "red" }}>{item.AV}%</Text>
+      );
+    };
+
+    const VA = ({ item }) => {
+      return item.VA > 79 ? (
+        <Text style={{ color: "#12ff12" }}>{item.VA}%</Text>
+      ) : item.VA > 59 ? (
+        <Text style={{ color: "#ff6a00" }}>{item.VA}%</Text>
+      ) : (
+        <Text style={{ color: "red" }}>{item.VA}%</Text>
+      );
+    };
+
+    const L = ({ item }) => {
+      return item.L > 79 ? (
+        <Text style={{ color: "#12ff12" }}>{item.L}%</Text>
+      ) : item.L > 59 ? (
+        <Text style={{ color: "#ff6a00" }}>{item.L}%</Text>
+      ) : (
+        <Text style={{ color: "red" }}>{item.L}%</Text>
+      );
+    };
+
+    console.log((item.AV + item.VA + item.L) / 3);
+
+    return (item.AV + item.VA + item.L) / 3 > 79 ? (
+      <View item={item} style={[styles.boxItem,{borderColor:"#12ff12"}]}>
+        <Text style={styles.id}> {item.id} </Text>
+        <TouchableOpacity
+          activeOpacity="0.5"
+          onPress={() =>
+            navigation.navigate("Exercise", { id: item.id, type: "AV" })
+          }
+          style={styles.boxInSight}
+        >
+          <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
+            {" "}
+            Anh - Việt{" "}
+          </Text>
+          <AV item={item}></AV>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity="0.5"
+          onPress={() =>
+            navigation.navigate("Exercise", { id: item.id, type: "VA" })
+          }
+          style={styles.boxInSight}
+        >
+          <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
+            {" "}
+            Việt - Anh{" "}
+          </Text>
+          <VA item={item}></VA>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity="0.5"
+          onPress={() =>
+            navigation.navigate("Exercise", { id: item.id, type: "L" })
+          }
+          style={styles.boxInSight}
+        >
+          <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
+            {" "}
+            Listen{" "}
+          </Text>
+          <L item={item}></L>
+        </TouchableOpacity>
+      </View>
+    ) : (item.AV + item.VA + item.L) / 3 > 60 ? (
+      <View item={item} style={[styles.boxItem,{borderColor:"#fd5900"}]}>
+        <Text style={styles.id}> {item.id} </Text>
+        <TouchableOpacity
+          activeOpacity="0.5"
+          onPress={() =>
+            navigation.navigate("Exercise", { id: item.id, type: "AV" })
+          }
+          style={styles.boxInSight}
+        >
+          <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
+            {" "}
+            Anh - Việt{" "}
+          </Text>
+          <AV item={item}></AV>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity="0.5"
+          onPress={() =>
+            navigation.navigate("Exercise", { id: item.id, type: "VA" })
+          }
+          style={styles.boxInSight}
+        >
+          <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
+            {" "}
+            Việt - Anh{" "}
+          </Text>
+          <VA item={item}></VA>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity="0.5"
+          onPress={() =>
+            navigation.navigate("Exercise", { id: item.id, type: "L" })
+          }
+          style={styles.boxInSight}
+        >
+          <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
+            {" "}
+            Listen{" "}
+          </Text>
+          <L item={item}></L>
+        </TouchableOpacity>
+      </View>
+    ) : (
+      <View item={item} style={[styles.boxItem,{borderColor:"blue"}]}>
+        <Text style={styles.id}> {item.id} </Text>
+        <TouchableOpacity
+          activeOpacity="0.5"
+          onPress={() =>
+            navigation.navigate("Exercise", { id: item.id, type: "AV" })
+          }
+          style={styles.boxInSight}
+        >
+          <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
+            {" "}
+            Anh - Việt{" "}
+          </Text>
+          <AV item={item}></AV>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity="0.5"
+          onPress={() =>
+            navigation.navigate("Exercise", { id: item.id, type: "VA" })
+          }
+          style={styles.boxInSight}
+        >
+          <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
+            {" "}
+            Việt - Anh{" "}
+          </Text>
+          <VA item={item}></VA>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity="0.5"
+          onPress={() =>
+            navigation.navigate("Exercise", { id: item.id, type: "L" })
+          }
+          style={styles.boxInSight}
+        >
+          <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
+            {" "}
+            Listen{" "}
+          </Text>
+          <L item={item}></L>
+        </TouchableOpacity>
+      </View>
+    );
+  };
+
   return (
     <View style={styles.containerHead}>
-      <ScrollView style={{ padding: 10 }}>
-        <FlatList
-          numColumns={2}
-          data={Exercises}
-          renderItem={({ item }) => (
-            <View item={item} style={styles.boxItem}>
-              <Text style={styles.id}> {item.id} </Text>
-              <TouchableOpacity
-                activeOpacity="0.5"
-                onPress={() =>
-                  navigation.navigate("Exercise", { id: item.id, type: "AV" })
-                }
-                style={styles.boxInSight}
-              >
-                <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
-                  {" "}
-                  Anh - Việt{" "}
-                </Text>
-                <Text> {item.VA}% </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                activeOpacity="0.5"
-                onPress={() =>
-                  navigation.navigate("Exercise", { id: item.id, type: "VA" })
-                }
-                style={styles.boxInSight}
-              >
-                <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
-                  {" "}
-                  Việt - Anh{" "}
-                </Text>
-                <Text> {item.AV}% </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                activeOpacity="0.5"
-                onPress={() =>
-                  navigation.navigate("Exercise", { id: item.id, type: "L" })
-                }
-                style={styles.boxInSight}
-              >
-                <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
-                  {" "}
-                  Listen{" "}
-                </Text>
-                <Text> {item.L}% </Text>
-              </TouchableOpacity>
-            </View>
-          )}
-          // contentContainerStyle={{ justifyContent: "space-between" }}
-        />
-      </ScrollView>
+      <FlatList
+        numColumns={2}
+        data={Exercises}
+        renderItem={({ item }) => <MainBox item={item}></MainBox>}
+        contentContainerStyle={{ padding: 20 }}
+      />
     </View>
   );
 };
