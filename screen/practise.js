@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { StyleSheet, Alert, View, Text, Modal, Pressable } from "react-native";
 
 export default function Pratise(route) {
+  
   const { navigation } = route;
   React.useLayoutEffect(() => {
     navigation.setOptions({
-      title: route.route.params.id + "_" + route.route.params.level,
+      title: "unit" + route.route.params.id + "_" + route.route.params.level,
       headerTitleStyle: { color: "blue", fontSize: 20 },
     });
   }, [navigation]);

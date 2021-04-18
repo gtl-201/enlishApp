@@ -6,7 +6,7 @@
     "web": "expo start --web",
     "start": "react-native start",
     "test": "jest",
-    "maindb": "json-server ./mockDb/main.json"
+    "mainDB": "json-server --watch ./mockDb/main.json"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^5.11.9",

@@ -4,11 +4,11 @@ import { FlatList, ScrollView } from "react-native-gesture-handler";
 
 const Practises = (props) => {
   const { navigation } = props;
+  
   const [isLoading, setLoading] = useState(true);
   const [PractisesDb, setData] = useState([]);
-
   React.useEffect(() => {
-    fetch("http://localhost:3000/practiseDB")
+    fetch("http://localhost:3000/practisesDB")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))
@@ -48,16 +48,16 @@ const Practises = (props) => {
       );
     };
 
-    console.log((item.easy + item.hard)/2);
+    // console.log((item.easy + item.hard)/2);
+    console.log(item)
     return ((item.easy + item.hard)/2) > 79 ? (
       <View
         style={[
           Styles.boxOut,
-          Styles.boxShadow,
           { borderColor: "#12ff12"},
         ]}
       >
-        <Text style={Styles.title}>{item.id}</Text>
+        <Text style={Styles.title}> unit {item.id}</Text>
         <TouchableOpacity
           style={Styles.boxIn}
           onPress={() =>
@@ -87,7 +87,7 @@ const Practises = (props) => {
     ) : 
     ((item.easy + item.hard)/2) > 60 ?(
       <View style={[Styles.boxOut, { borderColor: "#fd5900" }]}>
-        <Text style={Styles.title}>{item.id}</Text>
+        <Text style={Styles.title}> unit {item.id}</Text>
         <TouchableOpacity
           style={Styles.boxIn}
           onPress={() =>
@@ -117,7 +117,7 @@ const Practises = (props) => {
     ):
     (
       <View style={[Styles.boxOut, { borderColor: "#bcf8f9" }]}>
-        <Text style={Styles.title}>{item.id}</Text>
+        <Text style={Styles.title}> unit {item.id}</Text>
         <TouchableOpacity
           style={Styles.boxIn}
           onPress={() =>

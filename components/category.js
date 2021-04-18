@@ -8,9 +8,18 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import HeadPhone from "../asset/icons/icons8-headset-50.png";
-import Read from "../asset/icons/icons8-reading-50.png";
-import Write from "../asset/icons/icons8-edit-50.png";
+import HeadPhone from "../asset/icons/icons8-headphones-48.png";
+import Read from "../asset/icons/icons8-read-48.png";
+import Write from "../asset/icons/icons8-ereader-48.png";
+import Book from "../asset/icons/icons8-books64.png";
+import Music from "../asset/icons/icons8-music-48.png";
+import Dictionary from "../asset/icons/icons8-books-48.png";
+import Story from "../asset/icons/icons8-short-48.png";
+import Store from "../asset/icons/icons8-small-business-48.png";
+import Youtobe from "../asset/icons/icons8-play-button-48.png";
+
+
+
 
 const Category = (props) => {
   // console.log(props);
@@ -34,10 +43,11 @@ const Category = (props) => {
           </TouchableOpacity>
         </View>
 
-        <Text style={styles.title}>Buy Books:</Text>
+        <Text style={styles.title}>Store:</Text>
         <View style={styles.flexRow}>
           <TouchableOpacity style={styles.box1}>
-            <Image source={HeadPhone} style={styles.img}></Image>
+            <Image source={Store} style={styles.img}></Image>
+            <Text style={styles.content}>Buy our Books</Text>
             <Text style={styles.content}>Contact us: +84 940 272 166</Text>
           </TouchableOpacity>
         </View>
@@ -45,15 +55,15 @@ const Category = (props) => {
         <Text style={styles.title}>Extend:</Text>
         <View style={styles.flexRow}>
           <TouchableOpacity style={styles.box3}>
-            <Image source={HeadPhone} style={styles.img}></Image>
+            <Image source={Music} style={styles.img}></Image>
             <Text style={styles.content}>music</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.box3}>
-            <Image source={Read} style={styles.img}></Image>
+            <Image source={Dictionary} style={styles.img}></Image>
             <Text style={styles.content}>Dictionary</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.box3}>
-            <Image source={Write} style={styles.img}></Image>
+            <Image source={Story} style={styles.img}></Image>
             <Text style={styles.content}>e story</Text>
           </TouchableOpacity>
         </View>
@@ -66,8 +76,8 @@ const Category = (props) => {
           >
             <Text style={styles.button}>
               <Image
-                source={Read}
-                style={{ width: 50, height: 50, marginRight: 3 }}
+                source={Youtobe}
+                style={{ width: 50, height: 50, marginRight: 15 }}
               ></Image>
               See Our Course
             </Text>

@@ -5,6 +5,7 @@ import Exercise from "../stacks/exercises";
 import Audio from "../stacks/audios";
 import Practise from "../stacks/practises";
 import Menu from "../stacks/menu"
+import Store from "../stacks/store"
 
 import Icon from "react-native-vector-icons/Ionicons";
 
@@ -29,14 +30,17 @@ export default function mainTabs() {
               ? "book"
               : "book-outline";
           } 
-          else if (route.name === "Audio") {
-            iconName = focused ? "headset" : "headset-outline";
-          }
+          // else if (route.name === "Audio") {
+          //   iconName = focused ? "headset" : "headset-outline";
+          // }
           else if (route.name === "Practise") {
             iconName = focused ? "create" : "create-outline";
           }
           else if (route.name === "Menu") {
             iconName = focused ? "menu" : "menu-outline";
+          }
+          else if (route.name === "Store") {
+            iconName = focused ? "file-tray-stacked" : "file-tray-stacked-outline";
           }
 
           // You can return any component that you like here!
@@ -47,7 +51,8 @@ export default function mainTabs() {
       <Tabs.Screen name="Home" component={Home}></Tabs.Screen>
       <Tabs.Screen name="Exercise" component={Exercise}></Tabs.Screen>
       <Tabs.Screen name="Practise" component={Practise}></Tabs.Screen>
-      <Tabs.Screen name="Audio" component={Audio}></Tabs.Screen>
+      {/* <Tabs.Screen name="Audio" component={Audio}></Tabs.Screen> */}
+      <Tabs.Screen name="Store" component={Store}></Tabs.Screen>
       <Tabs.Screen name="Menu" component={Menu}></Tabs.Screen>
     </Tabs.Navigator>
   );

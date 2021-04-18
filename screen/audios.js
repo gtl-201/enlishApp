@@ -8,7 +8,7 @@ const Audio = ({ navigation }) => {
   const [isLoading, setLoading] = useState(true);
   const [audioDb, setData] = useState([]);
   React.useEffect(() => {
-    fetch("http://localhost:3000/audioDB")
+    fetch("http://localhost:3000/audiosDB")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))
@@ -36,7 +36,7 @@ const Audio = ({ navigation }) => {
             style={styles.box}
             onPress={() => navigation.navigate("Audio", { id: item.id })}
           >
-            <Text style={{ fontSize: 20,fontWeight:500 }}>{item.id}</Text>
+            <Text style={{ fontSize: 20,fontWeight:500 }}> unit {item.id}</Text>
             <Icon name="musical-notes-outline" size={20}></Icon>
           </TouchableOpacity>
         )}

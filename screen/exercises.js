@@ -9,7 +9,7 @@ const Exercise = (props) => {
   const [isLoading, setLoading] = useState(true);
   const [Exercises, setData] = useState([]);
   React.useEffect(() => {
-    fetch("http://localhost:3000/exerciseDB")
+    fetch("http://localhost:3000/exercisesDB")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))
@@ -65,7 +65,7 @@ const Exercise = (props) => {
 
     return (item.AV + item.VA + item.L) / 3 > 79 ? (
       <View item={item} style={[styles.boxItem,{borderColor:"#12ff12"}]}>
-        <Text style={styles.id}> {item.id} </Text>
+        <Text style={styles.id}> unit {item.id} </Text>
         <TouchableOpacity
           activeOpacity="0.5"
           onPress={() =>
@@ -108,7 +108,7 @@ const Exercise = (props) => {
       </View>
     ) : (item.AV + item.VA + item.L) / 3 > 60 ? (
       <View item={item} style={[styles.boxItem,{borderColor:"#fd5900"}]}>
-        <Text style={styles.id}> {item.id} </Text>
+        <Text style={styles.id}> unit {item.id} </Text>
         <TouchableOpacity
           activeOpacity="0.5"
           onPress={() =>
@@ -151,7 +151,7 @@ const Exercise = (props) => {
       </View>
     ) : (
       <View item={item} style={[styles.boxItem,{borderColor:"blue"}]}>
-        <Text style={styles.id}> {item.id} </Text>
+        <Text style={styles.id}> unit {item.id} </Text>
         <TouchableOpacity
           activeOpacity="0.5"
           onPress={() =>
