@@ -6,16 +6,6 @@ import { FlatList, ScrollView } from "react-native-gesture-handler";
 const Exercise = (props) => {
   const { navigation } = props;
 
-  const [isLoading, setLoading] = useState(true);
-  const [Exercises, setData] = useState([]);
-  React.useEffect(() => {
-    fetch("http://localhost:3000/exercisesDB")
-      .then((response) => response.json())
-      .then((json) => setData(json))
-      .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
-  }, []);
-
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerTitleStyle: {
@@ -26,10 +16,21 @@ const Exercise = (props) => {
     });
   }, [navigation]);
 
+  const [isLoading, setLoading] = useState(true);
+  const [Exercises, setData] = useState([]);
+  React.useEffect(() => {
+    fetch("https://my-json-server.typicode.com/gtl-201/serverJson/exercisesDB")
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  }, []);
+
   // const navigation = props;
 
   const MainBox = (props) => {
     const { item } = props;
+    console.log(item.title);
 
     const AV = ({ item }) => {
       return item.AV > 79 ? (
@@ -64,12 +65,16 @@ const Exercise = (props) => {
     console.log((item.AV + item.VA + item.L) / 3);
 
     return (item.AV + item.VA + item.L) / 3 > 79 ? (
-      <View item={item} style={[styles.boxItem,{borderColor:"#12ff12"}]}>
+      <View item={item} style={[styles.boxItem, { borderColor: "#12ff12" }]}>
         <Text style={styles.id}> unit {item.id} </Text>
         <TouchableOpacity
           activeOpacity="0.5"
           onPress={() =>
-            navigation.navigate("Exercise", { id: item.id, type: "AV" })
+            navigation.navigate("Exercise", {
+              id: item.id,
+              type: "AV",
+              headeLine: item.title,
+            })
           }
           style={styles.boxInSight}
         >
@@ -82,7 +87,11 @@ const Exercise = (props) => {
         <TouchableOpacity
           activeOpacity="0.5"
           onPress={() =>
-            navigation.navigate("Exercise", { id: item.id, type: "VA" })
+            navigation.navigate("Exercise", {
+              id: item.id,
+              type: "VA",
+              headeLine: item.title,
+            })
           }
           style={styles.boxInSight}
         >
@@ -95,7 +104,11 @@ const Exercise = (props) => {
         <TouchableOpacity
           activeOpacity="0.5"
           onPress={() =>
-            navigation.navigate("Exercise", { id: item.id, type: "L" })
+            navigation.navigate("Exercise", {
+              id: item.id,
+              type: "L",
+              headeLine: item.title,
+            })
           }
           style={styles.boxInSight}
         >
@@ -107,12 +120,16 @@ const Exercise = (props) => {
         </TouchableOpacity>
       </View>
     ) : (item.AV + item.VA + item.L) / 3 > 60 ? (
-      <View item={item} style={[styles.boxItem,{borderColor:"#fd5900"}]}>
+      <View item={item} style={[styles.boxItem, { borderColor: "#fd5900" }]}>
         <Text style={styles.id}> unit {item.id} </Text>
         <TouchableOpacity
           activeOpacity="0.5"
           onPress={() =>
-            navigation.navigate("Exercise", { id: item.id, type: "AV" })
+            navigation.navigate("Exercise", {
+              id: item.id,
+              type: "AV",
+              headeLine: item.title,
+            })
           }
           style={styles.boxInSight}
         >
@@ -125,7 +142,11 @@ const Exercise = (props) => {
         <TouchableOpacity
           activeOpacity="0.5"
           onPress={() =>
-            navigation.navigate("Exercise", { id: item.id, type: "VA" })
+            navigation.navigate("Exercise", {
+              id: item.id,
+              type: "VA",
+              headeLine: item.title,
+            })
           }
           style={styles.boxInSight}
         >
@@ -138,7 +159,11 @@ const Exercise = (props) => {
         <TouchableOpacity
           activeOpacity="0.5"
           onPress={() =>
-            navigation.navigate("Exercise", { id: item.id, type: "L" })
+            navigation.navigate("Exercise", {
+              id: item.id,
+              type: "L",
+              headeLine: item.title,
+            })
           }
           style={styles.boxInSight}
         >
@@ -150,12 +175,16 @@ const Exercise = (props) => {
         </TouchableOpacity>
       </View>
     ) : (
-      <View item={item} style={[styles.boxItem,{borderColor:"blue"}]}>
+      <View item={item} style={[styles.boxItem, { borderColor: "blue" }]}>
         <Text style={styles.id}> unit {item.id} </Text>
         <TouchableOpacity
           activeOpacity="0.5"
           onPress={() =>
-            navigation.navigate("Exercise", { id: item.id, type: "AV" })
+            navigation.navigate("Exercise", {
+              id: item.id,
+              type: "AV",
+              headeLine: item.title,
+            })
           }
           style={styles.boxInSight}
         >
@@ -168,7 +197,11 @@ const Exercise = (props) => {
         <TouchableOpacity
           activeOpacity="0.5"
           onPress={() =>
-            navigation.navigate("Exercise", { id: item.id, type: "VA" })
+            navigation.navigate("Exercise", {
+              id: item.id,
+              type: "VA",
+              headeLine: item.title,
+            })
           }
           style={styles.boxInSight}
         >
@@ -181,7 +214,11 @@ const Exercise = (props) => {
         <TouchableOpacity
           activeOpacity="0.5"
           onPress={() =>
-            navigation.navigate("Exercise", { id: item.id, type: "L" })
+            navigation.navigate("Exercise", {
+              id: item.id,
+              type: "L",
+              headeLine: item.title,
+            })
           }
           style={styles.boxInSight}
         >

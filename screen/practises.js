@@ -8,7 +8,7 @@ const Practises = (props) => {
   const [isLoading, setLoading] = useState(true);
   const [PractisesDb, setData] = useState([]);
   React.useEffect(() => {
-    fetch("http://localhost:3000/practisesDB")
+    fetch("https://my-json-server.typicode.com/gtl-201/serverJson/practisesDB")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))

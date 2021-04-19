@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text , TextInput, Button } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 
 export default function excercise(route) {
@@ -10,16 +10,29 @@ export default function excercise(route) {
       ? "Việt-Anh"
       : "Luyện Nghe";
   };
+  // console.log(random());
+  // console.log(Exercise[0][content]);
 
-  const Url = () => {
-    return route.route.params.id
-      ? "http://localhost:3000/exerciseUnit" + route.route.params.id + "DB"
-      : null;
-  };
-  console.log(Url());
+  // const [QuizNum, setQuizNum] = useState(-1);
+  // const ArrQuizNum = random();
+  // const CurrentQuiz = () => {
+  //   setQuizNum += 1;
+  //   return ArrQuizNum[QuizNum];
+  // };
+  // const CurrentQuiz = CurrentQuizTmp[0]
+  // console.log(CurrentQuiz);
+
+  const { navigation } = route;
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      title: "Unit" + " " + route.route.params.id + ": " + route.route.params.headeLine,
+      headerTitleStyle: { color: "blue", fontSize: 20 },
+    });
+  }, [navigation]);
+
 
   const random = () => {
-    var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], //all numbers to be randomized
+    var nums = [1, 2, 3, 4, 5, 6, 7, 8],
       ranNums = [],
       i = nums.length,
       j = 0;
@@ -31,15 +44,19 @@ export default function excercise(route) {
     }
     return ranNums;
   };
-  // console.log(random());
 
-  const { navigation } = route;
-  React.useLayoutEffect(() => {
-    navigation.setOptions({
-      title: "Unit" + " " + route.route.params.id + " " + Type(),
-      headerTitleStyle: { color: "blue", fontSize: 20 },
-    });
-  }, [navigation]);
+  const [currentQuestion, setCurrentQuestionTmp] = useState(1);
+
+  const QuestionNumArr = random()
+
+  const Url = () => {
+    return route.route.params.id
+      ? "https://my-json-server.typicode.com/gtl-201/serverJson/exerciseunit" +
+          route.route.params.id +
+          "DB?id=" + QuestionNumArr[currentQuestion]
+      : null;
+  };
+  console.log(Url());
 
   const [isLoading, setLoading] = useState(true);
   const [Exercise, setData] = useState([]);
@@ -51,28 +68,58 @@ export default function excercise(route) {
       .finally(() => setLoading(false));
   }, []);
 
-  // console.log(Exercise[0][content]);
+const Input =({item}) =>{
+  return (
+  route.route.params.type=="AV" ? 
+  <View style={Styles.container}>
+  <Text style={Styles.title}>{item.eng}</Text>
+  <TextInput
+  placeholder="Type Your Answer"
+  style={{borderWidth:2}}
+  ></TextInput>
+  <Button title="Submit"></Button>
+</View> : 
+route.route.params.type=="VA" ? 
+<View style={Styles.container}>
+  <Text style={Styles.title}>{item.vi}</Text>
+  <TextInput
+  placeholder="Type Your Answer"
+  style={{borderWidth:2}}
+  ></TextInput>
+  <Button title="Submit"></Button>
+</View> :
+<View>
+  <Text>Chua Lam</Text>
+</View>)
+}
 
   return (
-    <View>
+    <View style={Styles.container}>
       <FlatList
         data={Exercise}
         renderItem={({ item, index }) => {
-          // let { excercise } = item;
-          // if (!contents[index]) return null;
-          // let details = contents[index];
-          // let details = null;
-          // !excercise[index] ? null : (details = excercise[index]);
-          // console.log(excercise);
-          // console.log(index);
+          console.log(item)
           return (
-            <View>
-              <Text>{item.id}</Text>
-            </View>
-          );
+            <Input item={item}></Input>
+          )
         }}
         keyExtractor={(item, index) => index}
       />
     </View>
   );
 }
+
+const Styles = StyleSheet.create({
+  container:{
+    flex:1,
+    padding:15,
+    justifyContent:"center"
+  },
+  title:{
+    fontSize:25,
+    fontWeight:700,
+    color:"black",
+    width:"100%",
+    textAlign:"center"
+  }
+})

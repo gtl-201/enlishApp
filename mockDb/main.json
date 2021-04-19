@@ -1,19 +1,19 @@
 {
   "exercisesDB": [
-    { "id": 1, "VA": 40, "AV": 50, "L": 70},
-    { "id": 2, "VA": 10, "AV": 20, "L": 100},
-    { "id": 3, "VA": 70, "AV": 70, "L": 75 },
-    { "id": 4, "VA": 0, "AV": 0, "L": 0 },
-    { "id": 5, "VA": 0, "AV": 0, "L": 0 },
-    { "id": 6, "VA": 100, "AV": 90, "L": 90 },
-    { "id": 7, "VA": 0, "AV": 0, "L": 0 },
-    { "id": 8, "VA": 0, "AV": 0, "L": 0 },
-    { "id": 9, "VA": 0, "AV": 0, "L": 0 },
-    { "id": 10, "VA": 0, "AV": 0, "L": 0 },
-    { "id": 11, "VA": 0, "AV": 0, "L": 0 },
-    { "id": 12, "VA": 0, "AV": 0, "L": 0 },
-    { "id": 13, "VA": 0, "AV": 0, "L": 0 },
-    { "id": 14, "VA": 0, "AV": 0, "L": 0 }
+    { "id": 1, "title": "Job In Life" ,"VA": 40, "AV": 50, "L": 70},
+    { "id": 2, "title": "Job In Life" ,"VA": 10, "AV": 20, "L": 100},
+    { "id": 3, "title": "Job In Life" ,"VA": 70, "AV": 70, "L": 75 },
+    { "id": 4, "title": "Job In Life" ,"VA": 0, "AV": 0, "L": 0 },
+    { "id": 5, "title": "Job In Life" ,"VA": 0, "AV": 0, "L": 0 },
+    { "id": 6, "title": "Job In Life" ,"VA": 100, "AV": 90, "L": 90 },
+    { "id": 7, "title": "Job In Life" ,"VA": 0, "AV": 0, "L": 0 },
+    { "id": 8, "title": "Job In Life" ,"VA": 0, "AV": 0, "L": 0 },
+    { "id": 9, "title": "Job In Life" ,"VA": 0, "AV": 0, "L": 0 },
+    { "id": 10, "title": "Job In Life" ,"VA": 0, "AV": 0, "L": 0 },
+    { "id": 11, "title": "Job In Life" ,"VA": 0, "AV": 0, "L": 0 },
+    { "id": 12, "title": "Job In Life" ,"VA": 0, "AV": 0, "L": 0 },
+    { "id": 13, "title": "Job In Life" ,"VA": 0, "AV": 0, "L": 0 },
+    { "id": 14, "title": "Job In Life" ,"VA": 0, "AV": 0, "L": 0 }
   ],
   
   "practisesDB": [
@@ -51,14 +51,14 @@
   ],
 
   "exerciseUnit1DB":[
-    {"id":1 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":2 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":3 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":4 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":5 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":6 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":7 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":8 , "type":"" , "eng":"absolute" , "vi":"mượt mà"}
+    {"id":1 , "type":"" , "eng":"Bodyguard " , "vi":"Vệ sĩ" , "na":"ˈbɒdɪˌgɑːd" },
+    {"id":2 , "type":"" , "eng":"Judge " , "vi":"Quan tòa" , "na":"ˈʤʌʤ" },
+    {"id":3 , "type":"" , "eng":"Programmer " , "vi":"Lập trình viên" , "na":"ˈprəʊgræmə" },
+    {"id":4 , "type":"" , "eng":"Lawyer " , "vi":"Luật sư" , "na":"ˈlɔːjə" },
+    {"id":5 , "type":"" , "eng":"Software developer " , "vi":"Nhân viên phát triển phần mềm" , "na":"ˈsɒftweə dɪˈvɛləpə" },
+    {"id":6 , "type":"" , "eng":"Web develope " , "vi":"NV phát triển mạng" , "na":"wɛb develope" },
+    {"id":7 , "type":"" , "eng":"Accountant " , "vi":"Kế toán" , "na":"əˈkaʊntənt" },
+    {"id":8 , "type":"" , "eng":"Marketing director " , "vi":"Gám đốc marketing" , "na":"ˈmɑːkɪtɪŋ dɪˈrɛktə" }
   ],
   "exerciseUnit2DB":[
     {"id":1 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
@@ -85,7 +85,7 @@
   "storeDB":[
     {"id":1 , "url":"https://i.pinimg.com/564x/21/03/27/2103275e92f9072c37468942db702e59.jpg"  ,  "name":"Family And Friends 1", "author":"gtl-201","des":"This book suiable for beginer Lear English" , "price":10},
     {"id":2 , "url":"https://upload.wikimedia.org/wikipedia/vi/thumb/3/34/CharlottevaWilbur.jpg/220px-CharlottevaWilbur.jpg"  ,  "name":"Charlotte And Wilbur", "author":"Gart William","des":"Romantic story about girl and her dog" , "price":15},
-    {"id":3 , "url":"https://salt.tikicdn.com/cache/w444/ts/product/3d/fd/44/6f96804d0b57df4d7b02723cd8c79a5b.jpg"  ,  "name":"The house on Mangor Street", "author":"West of Sun","des":"Vintage Contemporaries" , "price":20 }
+    {"id":3 , "url":"https://bizweb.dktcdn.net/100/326/228/products/the-house-on-mango-street-by-sandra-cisneros.jpg?v=1546509898017"  ,  "name":"The house on Mangor Street", "author":"West of Sun","des":"Vintage Contemporaries" , "price":20 }
   ]
 
 }

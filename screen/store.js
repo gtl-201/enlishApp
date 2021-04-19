@@ -14,11 +14,14 @@ import FamilyFriends1 from "../asset/image/Fa-1-SB-scaled.jpg";
 
 const Store = (props) => {
   const { navigation } = props;
+  React.useLayoutEffect(() => {
+    navigation.setOptions({ headerShown: false });
+  }, [navigation]);
 
   const [isLoading, setLoading] = useState(true);
   const [StoreDB, setData] = useState([]);
   React.useEffect(() => {
-    fetch("http://localhost:3000/storeDB")
+    fetch("https://my-json-server.typicode.com/gtl-201/serverJson/storeDB")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))
@@ -82,7 +85,13 @@ const Store = (props) => {
                       <Text>{item.des}</Text>
                       <Text style={Styles.price}>{item.price}$</Text>
                     </View>
-                    <View style={{ flexDirection: "row", width: "100%" }}>
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        width: "100%",
+                        flexWrap: "wrap",
+                      }}
+                    >
                       <TouchableOpacity activeOpacity={0.5}>
                         <Text style={Styles.buttonLeft}>Read Online</Text>
                       </TouchableOpacity>
@@ -134,8 +143,9 @@ const Styles = StyleSheet.create({
     elevation: 12,
   },
   book: {
-    width: "100%",
-    height: 170,
+    minWidth: "100%",
+    minHeight:"100%",
+    maxHeight:"200%"
   },
   bookName: {
     fontSize: 20,
@@ -148,9 +158,9 @@ const Styles = StyleSheet.create({
     fontWeight: 700,
     color: "#808080e6",
   },
-  price:{
-    color:"red",
-    fontWeight:600,
+  price: {
+    color: "red",
+    fontWeight: 600,
   },
 
   buttonLeft: {
