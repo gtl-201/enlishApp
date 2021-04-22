@@ -74,32 +74,21 @@ export default function excercise(route) {
   // const [alertText, onAlert] = React.useState("");
   const Input = ({ item }) => {
     const [text, onChangeText] = React.useState(null);
-    let CheckPress = 'not'
+    const [Wrong, onChangeWrong] = React.useState("");
+    let CheckPress = "not";
 
     const PressButton = ({ item }) => {
-      console.log(text)
-      CheckPress = 'yes'
-      return text == null ? (
-        ""
-      ) : text == item.vi ? (
-        <View>
-          <Text>Uay gioi the dung roi ban e</Text>
-        </View>
-      ) : (
-        <View>
-          <Text>Sai roi phai la {item.vi} co</Text>
-        </View>
-      );
+      if (CheckPress == "yes") {
+        CheckPress = "not";
+        console.log(CheckPress);
+        console.log(text);
+        console.log(item.eng);
+        text == item.eng ? onChangeWrong("Uay gioi the dung roi ban e") : onChangeWrong("Sai roi phai la " + item.eng + " ma`");
+      } else {
+        return "";
+      }
     };
     // console.log(PressButton({item}))
-
-    const CheckPressFunction = () =>{
-      if(CheckPress == "yes"){
-        return PressButton({item})
-      }else{
-        return ""
-      }
-    }
 
     const NextButton = () => {
       setCurrentQuestionTmp({ currentQuestion } + 1);
@@ -110,8 +99,7 @@ export default function excercise(route) {
       <View style={Styles.container}>
         <Text style={Styles.title}>{item.eng}</Text>
 
-        {/* <PressButton item={item}></PressButton> */}
-        <CheckPressFunction></CheckPressFunction>
+        <Text> {Wrong} </Text>
 
         <TextInput
           placeholder="Type Your Answer"
@@ -121,20 +109,39 @@ export default function excercise(route) {
         ></TextInput>
         <Text>{text}</Text>
 
-        <Button title="click Me"></Button>
+        <Button
+          title="click Me"
+          onPress={() => {
+            CheckPress = "yes";
+            console.log(CheckPress);
+            PressButton({ item });
+          }}
+        ></Button>
       </View>
     ) : route.route.params.type == "VA" ? (
       <View style={Styles.container}>
-        <Text style={Styles.title}>{item.vi}</Text>
+        <View style={Styles.container}>
+          <Text style={Styles.title}>{item.vi}</Text>
 
-        {/* <PressButton item={item}></PressButton> */}
-        <CheckPressFunction></CheckPressFunction>
+          <Text> {Wrong} </Text>
 
-        <TextInput
-          placeholder="Type Your Answer"
-          style={{ borderWidth: 2 }}
-        ></TextInput>
-        <Button title="click Me"></Button>
+          <TextInput
+            placeholder="Type Your Answer"
+            style={{ borderWidth: 2 }}
+            onChangeText={onChangeText}
+            // onBlur={onChangeText}
+          ></TextInput>
+          <Text>{text}</Text>
+
+          <Button
+            title="click Me"
+            onPress={() => {
+              CheckPress = "yes";
+              console.log(CheckPress);
+              PressButton({ item });
+            }}
+          ></Button>
+        </View>
       </View>
     ) : (
       <View>
@@ -150,7 +157,7 @@ export default function excercise(route) {
       <FlatList
         data={Exercise}
         renderItem={({ item, index }) => {
-          console.log(item);
+          // console.log(item);
           return <Input item={item}></Input>;
         }}
         keyExtractor={(item, index) => index}

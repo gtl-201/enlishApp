@@ -219,8 +219,8 @@
     {
       "id": 1,
       "type": "",
-      "eng": "Bodyguard ",
-      "vi": "Vệ sĩ",
+      "eng": "bodyguard",
+      "vi": "vệ sĩ",
       "na": "ˈbɒdɪˌgɑːd",
       "wrongVi": [
         {
@@ -252,8 +252,8 @@
     {
       "id": 2,
       "type": "",
-      "eng": "Judge ",
-      "vi": "Quan tòa",
+      "eng": "judge",
+      "vi": "quan tòa",
       "na": "ˈʤʌʤ",
       "wrongVi": [
         {
@@ -285,8 +285,8 @@
     {
       "id": 3,
       "type": "",
-      "eng": "Programmer ",
-      "vi": "Lập trình viên",
+      "eng": "programmer",
+      "vi": "lập trình viên",
       "na": "ˈprəʊgræmə",
       "wrongVi": [
         {
@@ -318,8 +318,8 @@
     {
       "id": 4,
       "type": "",
-      "eng": "Lawyer ",
-      "vi": "Luật sư",
+      "eng": "lawyer",
+      "vi": "luật sư",
       "na": "ˈlɔːjə",
       "wrongVi": [
         {
@@ -351,8 +351,8 @@
     {
       "id": 5,
       "type": "",
-      "eng": "Software developer ",
-      "vi": "Nhân viên phát triển phần mềm",
+      "eng": "software developer",
+      "vi": "nhân viên phát triển phần mềm",
       "na": "ˈsɒftweə dɪˈvɛləpə",
       "wrongVi": [
         {
@@ -384,8 +384,8 @@
     {
       "id": 6,
       "type": "",
-      "eng": "Web develope ",
-      "vi": "NV phát triển mạng",
+      "eng": "web developer",
+      "vi": "nv phát triển mạng",
       "na": "wɛb develope",
       "wrongVi": [
         {
@@ -417,8 +417,8 @@
     {
       "id": 7,
       "type": "",
-      "eng": "Accountant ",
-      "vi": "Kế toán",
+      "eng": "accountant ",
+      "vi": "kế toán",
       "na": "əˈkaʊntənt",
       "wrongVi": [
         {
@@ -450,8 +450,8 @@
     {
       "id": 8,
       "type": "",
-      "eng": "Marketing director ",
-      "vi": "Gám đốc marketing",
+      "eng": "marketing director",
+      "vi": "gám đốc marketing",
       "na": "ˈmɑːkɪtɪŋ dɪˈrɛktə",
       "wrongVi": [
         {
