@@ -1,91 +1,613 @@
 {
   "exercisesDB": [
-    { "id": 1, "title": "Job In Life" ,"VA": 40, "AV": 50, "L": 70},
-    { "id": 2, "title": "Job In Life" ,"VA": 10, "AV": 20, "L": 100},
-    { "id": 3, "title": "Job In Life" ,"VA": 70, "AV": 70, "L": 75 },
-    { "id": 4, "title": "Job In Life" ,"VA": 0, "AV": 0, "L": 0 },
-    { "id": 5, "title": "Job In Life" ,"VA": 0, "AV": 0, "L": 0 },
-    { "id": 6, "title": "Job In Life" ,"VA": 100, "AV": 90, "L": 90 },
-    { "id": 7, "title": "Job In Life" ,"VA": 0, "AV": 0, "L": 0 },
-    { "id": 8, "title": "Job In Life" ,"VA": 0, "AV": 0, "L": 0 },
-    { "id": 9, "title": "Job In Life" ,"VA": 0, "AV": 0, "L": 0 },
-    { "id": 10, "title": "Job In Life" ,"VA": 0, "AV": 0, "L": 0 },
-    { "id": 11, "title": "Job In Life" ,"VA": 0, "AV": 0, "L": 0 },
-    { "id": 12, "title": "Job In Life" ,"VA": 0, "AV": 0, "L": 0 },
-    { "id": 13, "title": "Job In Life" ,"VA": 0, "AV": 0, "L": 0 },
-    { "id": 14, "title": "Job In Life" ,"VA": 0, "AV": 0, "L": 0 }
+    {
+      "id": 1,
+      "title": "Job In Life",
+      "VA": 40,
+      "AV": 50,
+      "L": 70
+    },
+    {
+      "id": 2,
+      "title": "Job In Life",
+      "VA": 10,
+      "AV": 20,
+      "L": 100
+    },
+    {
+      "id": 3,
+      "title": "Job In Life",
+      "VA": 70,
+      "AV": 70,
+      "L": 75
+    },
+    {
+      "id": 4,
+      "title": "Job In Life",
+      "VA": 0,
+      "AV": 0,
+      "L": 0
+    },
+    {
+      "id": 5,
+      "title": "Job In Life",
+      "VA": 0,
+      "AV": 0,
+      "L": 0
+    },
+    {
+      "id": 6,
+      "title": "Job In Life",
+      "VA": 100,
+      "AV": 90,
+      "L": 90
+    },
+    {
+      "id": 7,
+      "title": "Job In Life",
+      "VA": 0,
+      "AV": 0,
+      "L": 0
+    },
+    {
+      "id": 8,
+      "title": "Job In Life",
+      "VA": 0,
+      "AV": 0,
+      "L": 0
+    },
+    {
+      "id": 9,
+      "title": "Job In Life",
+      "VA": 0,
+      "AV": 0,
+      "L": 0
+    },
+    {
+      "id": 10,
+      "title": "Job In Life",
+      "VA": 0,
+      "AV": 0,
+      "L": 0
+    },
+    {
+      "id": 11,
+      "title": "Job In Life",
+      "VA": 0,
+      "AV": 0,
+      "L": 0
+    },
+    {
+      "id": 12,
+      "title": "Job In Life",
+      "VA": 0,
+      "AV": 0,
+      "L": 0
+    },
+    {
+      "id": 13,
+      "title": "Job In Life",
+      "VA": 0,
+      "AV": 0,
+      "L": 0
+    },
+    {
+      "id": 14,
+      "title": "Job In Life",
+      "VA": 0,
+      "AV": 0,
+      "L": 0
+    }
   ],
-  
   "practisesDB": [
-    { "id": 1, "easy": 100, "hard": 90 },
-    { "id": 2, "easy": 30, "hard": 70 },
-    { "id": 3, "easy": 50, "hard": 60 },
-    { "id": 4, "easy": 40, "hard": 100 },
-    { "id": 5, "easy": 0, "hard": 0},
-    { "id": 6, "easy": 0, "hard": 0},
-    { "id": 7, "easy": 0, "hard": 0},
-    { "id": 8, "easy": 0, "hard": 0},
-    { "id": 9, "easy": 0, "hard": 0},
-    { "id": 10, "easy": 0, "hard": 0},
-    { "id": 11, "easy": 0, "hard": 0},
-    { "id": 12, "easy": 0, "hard": 0},
-    { "id": 13, "easy": 0, "hard": 0},
-    { "id": 14, "easy": 0, "hard": 0}
+    {
+      "id": 1,
+      "easy": 100,
+      "hard": 90
+    },
+    {
+      "id": 2,
+      "easy": 30,
+      "hard": 70
+    },
+    {
+      "id": 3,
+      "easy": 50,
+      "hard": 60
+    },
+    {
+      "id": 4,
+      "easy": 40,
+      "hard": 100
+    },
+    {
+      "id": 5,
+      "easy": 0,
+      "hard": 0
+    },
+    {
+      "id": 6,
+      "easy": 0,
+      "hard": 0
+    },
+    {
+      "id": 7,
+      "easy": 0,
+      "hard": 0
+    },
+    {
+      "id": 8,
+      "easy": 0,
+      "hard": 0
+    },
+    {
+      "id": 9,
+      "easy": 0,
+      "hard": 0
+    },
+    {
+      "id": 10,
+      "easy": 0,
+      "hard": 0
+    },
+    {
+      "id": 11,
+      "easy": 0,
+      "hard": 0
+    },
+    {
+      "id": 12,
+      "easy": 0,
+      "hard": 0
+    },
+    {
+      "id": 13,
+      "easy": 0,
+      "hard": 0
+    },
+    {
+      "id": 14,
+      "easy": 0,
+      "hard": 0
+    }
   ],
-
-  "audiosDB":[
-    { "id": 1 },
-    { "id": 2 },
-    { "id": 3 },
-    { "id": 4 },
-    { "id": 5 },
-    { "id": 6 },
-    { "id": 7 },
-    { "id": 8 },
-    { "id": 9 },
-    { "id": 10 },
-    { "id": 11 },
-    { "id": 12 },
-    { "id": 13 },
-    { "id": 14 }
+  "audiosDB": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 10
+    },
+    {
+      "id": 11
+    },
+    {
+      "id": 12
+    },
+    {
+      "id": 13
+    },
+    {
+      "id": 14
+    }
   ],
-
-  "exerciseUnit1DB":[
-    {"id":1 , "type":"" , "eng":"Bodyguard " , "vi":"Vệ sĩ" , "na":"ˈbɒdɪˌgɑːd" },
-    {"id":2 , "type":"" , "eng":"Judge " , "vi":"Quan tòa" , "na":"ˈʤʌʤ" },
-    {"id":3 , "type":"" , "eng":"Programmer " , "vi":"Lập trình viên" , "na":"ˈprəʊgræmə" },
-    {"id":4 , "type":"" , "eng":"Lawyer " , "vi":"Luật sư" , "na":"ˈlɔːjə" },
-    {"id":5 , "type":"" , "eng":"Software developer " , "vi":"Nhân viên phát triển phần mềm" , "na":"ˈsɒftweə dɪˈvɛləpə" },
-    {"id":6 , "type":"" , "eng":"Web develope " , "vi":"NV phát triển mạng" , "na":"wɛb develope" },
-    {"id":7 , "type":"" , "eng":"Accountant " , "vi":"Kế toán" , "na":"əˈkaʊntənt" },
-    {"id":8 , "type":"" , "eng":"Marketing director " , "vi":"Gám đốc marketing" , "na":"ˈmɑːkɪtɪŋ dɪˈrɛktə" }
+  "exerciseUnit1DB": [
+    {
+      "id": 1,
+      "type": "",
+      "eng": "Bodyguard ",
+      "vi": "Vệ sĩ",
+      "na": "ˈbɒdɪˌgɑːd",
+      "wrongVi": [
+        {
+          "index": 1,
+          "content": "ahihi"
+        },
+        {
+          "index": 2,
+          "content": "ahihi"
+        },
+        {
+          "index": 3,
+          "content": "ahihi"
+        },
+        {
+          "index": 4,
+          "content": "ahihi"
+        },
+        {
+          "index": 5,
+          "content": "ahihi"
+        },
+        {
+          "index": 6,
+          "content": "ahihi"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "",
+      "eng": "Judge ",
+      "vi": "Quan tòa",
+      "na": "ˈʤʌʤ",
+      "wrongVi": [
+        {
+          "index": 1,
+          "content": "ahihi"
+        },
+        {
+          "index": 2,
+          "content": "ahihi"
+        },
+        {
+          "index": 3,
+          "content": "ahihi"
+        },
+        {
+          "index": 4,
+          "content": "ahihi"
+        },
+        {
+          "index": 5,
+          "content": "ahihi"
+        },
+        {
+          "index": 6,
+          "content": "ahihi"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "",
+      "eng": "Programmer ",
+      "vi": "Lập trình viên",
+      "na": "ˈprəʊgræmə",
+      "wrongVi": [
+        {
+          "index": 1,
+          "content": "ahihi"
+        },
+        {
+          "index": 2,
+          "content": "ahihi"
+        },
+        {
+          "index": 3,
+          "content": "ahihi"
+        },
+        {
+          "index": 4,
+          "content": "ahihi"
+        },
+        {
+          "index": 5,
+          "content": "ahihi"
+        },
+        {
+          "index": 6,
+          "content": "ahihi"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "",
+      "eng": "Lawyer ",
+      "vi": "Luật sư",
+      "na": "ˈlɔːjə",
+      "wrongVi": [
+        {
+          "index": 1,
+          "content": "ahihi"
+        },
+        {
+          "index": 2,
+          "content": "ahihi"
+        },
+        {
+          "index": 3,
+          "content": "ahihi"
+        },
+        {
+          "index": 4,
+          "content": "ahihi"
+        },
+        {
+          "index": 5,
+          "content": "ahihi"
+        },
+        {
+          "index": 6,
+          "content": "ahihi"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "",
+      "eng": "Software developer ",
+      "vi": "Nhân viên phát triển phần mềm",
+      "na": "ˈsɒftweə dɪˈvɛləpə",
+      "wrongVi": [
+        {
+          "index": 1,
+          "content": "ahihi"
+        },
+        {
+          "index": 2,
+          "content": "ahihi"
+        },
+        {
+          "index": 3,
+          "content": "ahihi"
+        },
+        {
+          "index": 4,
+          "content": "ahihi"
+        },
+        {
+          "index": 5,
+          "content": "ahihi"
+        },
+        {
+          "index": 6,
+          "content": "ahihi"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "type": "",
+      "eng": "Web develope ",
+      "vi": "NV phát triển mạng",
+      "na": "wɛb develope",
+      "wrongVi": [
+        {
+          "index": 1,
+          "content": "ahihi"
+        },
+        {
+          "index": 2,
+          "content": "ahihi"
+        },
+        {
+          "index": 3,
+          "content": "ahihi"
+        },
+        {
+          "index": 4,
+          "content": "ahihi"
+        },
+        {
+          "index": 5,
+          "content": "ahihi"
+        },
+        {
+          "index": 6,
+          "content": "ahihi"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "type": "",
+      "eng": "Accountant ",
+      "vi": "Kế toán",
+      "na": "əˈkaʊntənt",
+      "wrongVi": [
+        {
+          "index": 1,
+          "content": "ahihi"
+        },
+        {
+          "index": 2,
+          "content": "ahihi"
+        },
+        {
+          "index": 3,
+          "content": "ahihi"
+        },
+        {
+          "index": 4,
+          "content": "ahihi"
+        },
+        {
+          "index": 5,
+          "content": "ahihi"
+        },
+        {
+          "index": 6,
+          "content": "ahihi"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "type": "",
+      "eng": "Marketing director ",
+      "vi": "Gám đốc marketing",
+      "na": "ˈmɑːkɪtɪŋ dɪˈrɛktə",
+      "wrongVi": [
+        {
+          "index": 1,
+          "content": "ahihi"
+        },
+        {
+          "index": 2,
+          "content": "ahihi"
+        },
+        {
+          "index": 3,
+          "content": "ahihi"
+        },
+        {
+          "index": 4,
+          "content": "ahihi"
+        },
+        {
+          "index": 5,
+          "content": "ahihi"
+        },
+        {
+          "index": 6,
+          "content": "ahihi"
+        }
+      ]
+    }
   ],
-  "exerciseUnit2DB":[
-    {"id":1 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":2 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":3 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":4 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":5 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":6 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":7 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":8 , "type":"" , "eng":"absolute" , "vi":"mượt mà"}
+  "exerciseUnit2DB": [
+    {
+      "id": 1,
+      "type": "",
+      "eng": "absolute",
+      "vi": "mượt mà"
+    },
+    {
+      "id": 2,
+      "type": "",
+      "eng": "absolute",
+      "vi": "mượt mà"
+    },
+    {
+      "id": 3,
+      "type": "",
+      "eng": "absolute",
+      "vi": "mượt mà"
+    },
+    {
+      "id": 4,
+      "type": "",
+      "eng": "absolute",
+      "vi": "mượt mà"
+    },
+    {
+      "id": 5,
+      "type": "",
+      "eng": "absolute",
+      "vi": "mượt mà"
+    },
+    {
+      "id": 6,
+      "type": "",
+      "eng": "absolute",
+      "vi": "mượt mà"
+    },
+    {
+      "id": 7,
+      "type": "",
+      "eng": "absolute",
+      "vi": "mượt mà"
+    },
+    {
+      "id": 8,
+      "type": "",
+      "eng": "absolute",
+      "vi": "mượt mà"
+    }
   ],
-  "exerciseUnit3DB":[
-    {"id":1 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":2 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":3 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":4 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":5 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":6 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":7 , "type":"" , "eng":"absolute" , "vi":"mượt mà"},
-    {"id":8 , "type":"" , "eng":"absolute" , "vi":"mượt mà"}
+  "exerciseUnit3DB": [
+    {
+      "id": 1,
+      "type": "",
+      "eng": "absolute",
+      "vi": "mượt mà"
+    },
+    {
+      "id": 2,
+      "type": "",
+      "eng": "absolute",
+      "vi": "mượt mà"
+    },
+    {
+      "id": 3,
+      "type": "",
+      "eng": "absolute",
+      "vi": "mượt mà"
+    },
+    {
+      "id": 4,
+      "type": "",
+      "eng": "absolute",
+      "vi": "mượt mà"
+    },
+    {
+      "id": 5,
+      "type": "",
+      "eng": "absolute",
+      "vi": "mượt mà"
+    },
+    {
+      "id": 6,
+      "type": "",
+      "eng": "absolute",
+      "vi": "mượt mà"
+    },
+    {
+      "id": 7,
+      "type": "",
+      "eng": "absolute",
+      "vi": "mượt mà"
+    },
+    {
+      "id": 8,
+      "type": "",
+      "eng": "absolute",
+      "vi": "mượt mà"
+    }
   ],
-
-
-  "storeDB":[
-    {"id":1 , "url":"https://i.pinimg.com/564x/21/03/27/2103275e92f9072c37468942db702e59.jpg"  ,  "name":"Family And Friends 1", "author":"gtl-201","des":"This book suiable for beginer Lear English" , "price":10},
-    {"id":2 , "url":"https://upload.wikimedia.org/wikipedia/vi/thumb/3/34/CharlottevaWilbur.jpg/220px-CharlottevaWilbur.jpg"  ,  "name":"Charlotte And Wilbur", "author":"Gart William","des":"Romantic story about girl and her dog" , "price":15},
-    {"id":3 , "url":"https://bizweb.dktcdn.net/100/326/228/products/the-house-on-mango-street-by-sandra-cisneros.jpg?v=1546509898017"  ,  "name":"The house on Mangor Street", "author":"West of Sun","des":"Vintage Contemporaries" , "price":20 }
+  "storeDB": [
+    {
+      "id": 1,
+      "url": "https://i.pinimg.com/564x/21/03/27/2103275e92f9072c37468942db702e59.jpg",
+      "name": "Family And Friends 1",
+      "author": "gtl-201",
+      "des": "This book suiable for beginer Lear English",
+      "price": 10,
+      "readDemo":"zxcvbnm,asdfghjklqwetyuiop zxcvbnm, dfghj krtyu ewdgv uhdf skjgh"
+    },
+    {
+      "id": 2,
+      "url": "https://upload.wikimedia.org/wikipedia/vi/thumb/3/34/CharlottevaWilbur.jpg/220px-CharlottevaWilbur.jpg",
+      "name": "Charlotte And Wilbur",
+      "author": "Gart William",
+      "des": "Romantic story about girl and her dog",
+      "price": 15,
+      "readDemo":"olala khong co j o day hiehiehie hiehiehie hiehiehie hiehiehie hiehiehie"
+    },
+    {
+      "id": 3,
+      "url": "https://bizweb.dktcdn.net/100/326/228/products/the-house-on-mango-street-by-sandra-cisneros.jpg?v=1546509898017",
+      "name": "The house on Mangor Street",
+      "author": "West of Sun",
+      "des": "Vintage Contemporaries",
+      "price": 20,
+      "readDemo":"Chua co bo Chua co bo Chua co bo Chua co bo Chua co bo Chua co bo Chua co bo "
+    }
   ]
-
 }

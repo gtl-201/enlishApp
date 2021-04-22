@@ -21,7 +21,7 @@ const Store = (props) => {
   const [isLoading, setLoading] = useState(true);
   const [StoreDB, setData] = useState([]);
   React.useEffect(() => {
-    fetch("https://my-json-server.typicode.com/gtl-201/serverJson/storeDB")
+    fetch("http://localhost:3000/storeDB")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))
@@ -92,8 +92,8 @@ const Store = (props) => {
                         flexWrap: "wrap",
                       }}
                     >
-                      <TouchableOpacity activeOpacity={0.5}>
-                        <Text style={Styles.buttonLeft}>Read Online</Text>
+                      <TouchableOpacity activeOpacity={0.5} onPress={()=>navigation.navigate("BookDemo",{item:item})}>
+                        <Text style={Styles.buttonLeft}>Read Demo</Text>
                       </TouchableOpacity>
                       <TouchableOpacity activeOpacity={0.5}>
                         <Text style={Styles.buttonRight}>Buy It</Text>

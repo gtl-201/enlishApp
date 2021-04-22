@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { StyleSheet, View, Text , TextInput, Button } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+import React, { useState, Component } from "react";
+import { StyleSheet, View, Text, TextInput, Button } from "react-native";
+import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 
 export default function excercise(route) {
   const Type = () => {
@@ -25,11 +25,15 @@ export default function excercise(route) {
   const { navigation } = route;
   React.useLayoutEffect(() => {
     navigation.setOptions({
-      title: "Unit" + " " + route.route.params.id + ": " + route.route.params.headeLine,
+      title:
+        "Unit" +
+        " " +
+        route.route.params.id +
+        ": " +
+        route.route.params.headeLine,
       headerTitleStyle: { color: "blue", fontSize: 20 },
     });
   }, [navigation]);
-
 
   const random = () => {
     var nums = [1, 2, 3, 4, 5, 6, 7, 8],
@@ -45,18 +49,18 @@ export default function excercise(route) {
     return ranNums;
   };
 
-  const [currentQuestion, setCurrentQuestionTmp] = useState(1);
+  const [currentQuestion, setCurrentQuestionTmp] = useState(0);
 
-  const QuestionNumArr = random()
+  const QuestionNumArr = random();
 
   const Url = () => {
     return route.route.params.id
-      ? "https://my-json-server.typicode.com/gtl-201/serverJson/exerciseunit" +
+      ? "http://localhost:3000/exerciseunit" +
           route.route.params.id +
-          "DB?id=" + QuestionNumArr[currentQuestion]
+          "DB?id=" +
+          QuestionNumArr[currentQuestion]
       : null;
   };
-  console.log(Url());
 
   const [isLoading, setLoading] = useState(true);
   const [Exercise, setData] = useState([]);
@@ -67,41 +71,87 @@ export default function excercise(route) {
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
+  // const [alertText, onAlert] = React.useState("");
+  const Input = ({ item }) => {
+    const [text, onChangeText] = React.useState(null);
+    let CheckPress = 'not'
 
-const Input =({item}) =>{
-  return (
-  route.route.params.type=="AV" ? 
-  <View style={Styles.container}>
-  <Text style={Styles.title}>{item.eng}</Text>
-  <TextInput
-  placeholder="Type Your Answer"
-  style={{borderWidth:2}}
-  ></TextInput>
-  <Button title="Submit"></Button>
-</View> : 
-route.route.params.type=="VA" ? 
-<View style={Styles.container}>
-  <Text style={Styles.title}>{item.vi}</Text>
-  <TextInput
-  placeholder="Type Your Answer"
-  style={{borderWidth:2}}
-  ></TextInput>
-  <Button title="Submit"></Button>
-</View> :
-<View>
-  <Text>Chua Lam</Text>
-</View>)
-}
+    const PressButton = ({ item }) => {
+      console.log(text)
+      CheckPress = 'yes'
+      return text == null ? (
+        ""
+      ) : text == item.vi ? (
+        <View>
+          <Text>Uay gioi the dung roi ban e</Text>
+        </View>
+      ) : (
+        <View>
+          <Text>Sai roi phai la {item.vi} co</Text>
+        </View>
+      );
+    };
+    // console.log(PressButton({item}))
+
+    const CheckPressFunction = () =>{
+      if(CheckPress == "yes"){
+        return PressButton({item})
+      }else{
+        return ""
+      }
+    }
+
+    const NextButton = () => {
+      setCurrentQuestionTmp({ currentQuestion } + 1);
+      return Url();
+    };
+
+    return route.route.params.type == "AV" ? (
+      <View style={Styles.container}>
+        <Text style={Styles.title}>{item.eng}</Text>
+
+        {/* <PressButton item={item}></PressButton> */}
+        <CheckPressFunction></CheckPressFunction>
+
+        <TextInput
+          placeholder="Type Your Answer"
+          style={{ borderWidth: 2 }}
+          onChangeText={onChangeText}
+          // onBlur={onChangeText}
+        ></TextInput>
+        <Text>{text}</Text>
+
+        <Button title="click Me"></Button>
+      </View>
+    ) : route.route.params.type == "VA" ? (
+      <View style={Styles.container}>
+        <Text style={Styles.title}>{item.vi}</Text>
+
+        {/* <PressButton item={item}></PressButton> */}
+        <CheckPressFunction></CheckPressFunction>
+
+        <TextInput
+          placeholder="Type Your Answer"
+          style={{ borderWidth: 2 }}
+        ></TextInput>
+        <Button title="click Me"></Button>
+      </View>
+    ) : (
+      <View>
+        <Text>Chua Lam</Text>
+      </View>
+    );
+  };
+
+  const CheckResult = ({ item }) => {};
 
   return (
     <View style={Styles.container}>
       <FlatList
         data={Exercise}
         renderItem={({ item, index }) => {
-          console.log(item)
-          return (
-            <Input item={item}></Input>
-          )
+          console.log(item);
+          return <Input item={item}></Input>;
         }}
         keyExtractor={(item, index) => index}
       />
@@ -110,16 +160,16 @@ route.route.params.type=="VA" ?
 }
 
 const Styles = StyleSheet.create({
-  container:{
-    flex:1,
-    padding:15,
-    justifyContent:"center"
+  container: {
+    flex: 1,
+    padding: 15,
+    justifyContent: "center",
   },
-  title:{
-    fontSize:25,
-    fontWeight:700,
-    color:"black",
-    width:"100%",
-    textAlign:"center"
-  }
-})
+  title: {
+    fontSize: 25,
+    fontWeight: 700,
+    color: "black",
+    width: "100%",
+    textAlign: "center",
+  },
+});

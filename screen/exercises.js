@@ -19,7 +19,7 @@ const Exercise = (props) => {
   const [isLoading, setLoading] = useState(true);
   const [Exercises, setData] = useState([]);
   React.useEffect(() => {
-    fetch("https://my-json-server.typicode.com/gtl-201/serverJson/exercisesDB")
+    fetch("http://localhost:3000/exercisesDB")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))

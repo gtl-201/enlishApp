@@ -9,7 +9,8 @@ const Audio = ({ navigation }) => {
   const [audioDb, setData] = useState([]);
   React.useEffect(() => {
     // http://localhost:3000/audiosDB
-    fetch("https://my-json-server.typicode.com/gtl-201/serverJson/audiosDB")
+    // https://my-json-server.typicode.com/gtl-201/serverJson/
+    fetch("http://localhost:3000/audiosDB")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))
