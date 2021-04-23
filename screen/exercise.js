@@ -10,15 +10,19 @@ export default function excercise(route) {
       ? "Việt-Anh"
       : "Luyện Nghe";
   };
+
   const [numRight, setNumRight] = React.useState([]);
   const [numWrong, setNumWrong] = React.useState([]);
 
+  //START VA RESULT
   const Result = () => {
     let total = numWrong.length + numRight.length;
     let record = (numRight.length / total) * 100;
     return (
-      <View style={{ justifyContent: "center",alignItems:"center", padding: 15 }}>
-        <Text style={[Styles.title],{fontSize:20}}>Completed</Text>
+      <View
+        style={{ justifyContent: "center", alignItems: "center", padding: 15 }}
+      >
+        <Text style={([Styles.title], { fontSize: 20 })}>Completed</Text>
         {record > 80 ? (
           <Text style={[Styles.percent, { color: "#12ff12" }]}>
             {Math.ceil(record)}%
@@ -39,6 +43,7 @@ export default function excercise(route) {
       </View>
     );
   };
+  //END VA RESULT
 
   //START HEADER TITLE
   const { navigation } = route;
@@ -54,6 +59,7 @@ export default function excercise(route) {
     });
   }, [navigation]);
   //END HEADER TITLE
+
   const random = () => {
     var nums = [1, 2, 3, 4, 5, 6, 7, 8],
       ranNums = [],
@@ -87,13 +93,14 @@ export default function excercise(route) {
     }
   };
   // console.log(QuestionNumArr[currentQuestion])
-  console.log(QuestionNumArr);
-  console.log(currentQuestion);
-  console.log(Url());
+  // console.log(QuestionNumArr);
+  // console.log(currentQuestion);
+  // console.log(Url());
 
   const [isLoading, setLoading] = useState(true);
   const [Exercise, setData] = useState([]);
 
+  //START FETCH JSON
   const put = () => {
     if (isLoading == true) {
       fetch(Url())
@@ -106,6 +113,7 @@ export default function excercise(route) {
   put();
   //END FETCH JSON
 
+  //START NEXT BUTTON
   const Next = (
     <Button
       title="Tiếp Tục"
@@ -119,6 +127,7 @@ export default function excercise(route) {
       style={[Styles.Button]}
     ></Button>
   );
+  //END NEXT BUTTON
 
   const MainViewsVietAnh = ({ item }) => {
     const [text, onChangeText] = React.useState(null);
@@ -155,11 +164,11 @@ export default function excercise(route) {
         //   : onChangeAlertResult("Sai roi phai la " + item.eng + " ma`")
         if (text == item.eng) {
           setRight(1);
-          onChangeAlertResult("Uay gioi the dung roi ban e");
+          onChangeAlertResult("dảk dảk bruh bruh lmao chính xác");
           numRight.push(item.id);
         } else {
           setRight(2);
-          onChangeAlertResult("Sai roi phai la " + item.eng + " ma`");
+          onChangeAlertResult("Sai rồi phải là '" + item.eng + "' nhé");
           numWrong.push(item.id);
         }
       } else {
@@ -191,7 +200,7 @@ export default function excercise(route) {
               <View
                 style={[
                   {
-                    backgroundColor: "#2bff1880",
+                    backgroundColor: "#2bff2b45",
                     borderColor: "#00d600d4",
                   },
                   Styles.AlrertBox,
