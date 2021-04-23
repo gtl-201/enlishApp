@@ -10,6 +10,35 @@ export default function excercise(route) {
       ? "Việt-Anh"
       : "Luyện Nghe";
   };
+  const [numRight, setNumRight] = React.useState([]);
+  const [numWrong, setNumWrong] = React.useState([]);
+
+  const Result = () => {
+    let total = numWrong.length + numRight.length;
+    let record = (numRight.length / total) * 100;
+    return (
+      <View style={{ justifyContent: "center",alignItems:"center", padding: 15 }}>
+        <Text style={[Styles.title],{fontSize:20}}>Completed</Text>
+        {record > 80 ? (
+          <Text style={[Styles.percent, { color: "#12ff12" }]}>
+            {Math.ceil(record)}%
+          </Text>
+        ) : record > 60 ? (
+          <Text style={[Styles.percent, { color: "#ff6a00" }]}>
+            {Math.ceil(record)}%
+          </Text>
+        ) : (
+          <Text style={[Styles.percent, { color: "red" }]}>
+            {Math.ceil(record)}%
+          </Text>
+        )}
+
+        <Text style={[Styles.finalRight]}>
+          Right: {numRight.length}/{total}
+        </Text>
+      </View>
+    );
+  };
 
   //START HEADER TITLE
   const { navigation } = route;
@@ -51,6 +80,10 @@ export default function excercise(route) {
             "DB?id=" +
             QuestionNumArr[currentQuestion]
         : null;
+    } else {
+      return (
+        "http://localhost:3000/exerciseunit" + route.route.params.id + "DB"
+      );
     }
   };
   // console.log(QuestionNumArr[currentQuestion])
@@ -61,17 +94,8 @@ export default function excercise(route) {
   const [isLoading, setLoading] = useState(true);
   const [Exercise, setData] = useState([]);
 
-  //START FETCH JSON
-  // React.useEffect(() => {
-  //   fetch(Url())
-  //     .then((response) => response.json())
-  //     .then((json) => setData(json))
-  //     .catch((error) => console.error(error))
-  //     .finally(() => setLoading(false));
-  // }, []);
   const put = () => {
     if (isLoading == true) {
-      console.log("x");
       fetch(Url())
         .then((response) => response.json())
         .then((json) => setData(json))
@@ -100,7 +124,7 @@ export default function excercise(route) {
     const [text, onChangeText] = React.useState(null);
     const [AlertResult, onChangeAlertResult] = React.useState("");
     let CheckPress = "not";
-    let right = 0;
+
     //CHECK BUTTON
     const Check = (
       <Button
@@ -117,75 +141,118 @@ export default function excercise(route) {
     //END CHECK BUTTON
 
     //START CHECK AlertResult OR RIGHT
+    const [right, setRight] = React.useState(0);
+
     const PressButton = ({ item }) => {
       if (CheckPress == "yes") {
         CheckPress = "not";
         // console.log(CheckPress);
         // console.log(text);
         // console.log(item.eng);
-        text == item.eng
-          ? onChangeAlertResult("Uay gioi the dung roi ban e")
-          : onChangeAlertResult("Sai roi phai la " + item.eng + " ma`");
+
+        // text == item.eng
+        //   ? onChangeAlertResult("Uay gioi the dung roi ban e")
+        //   : onChangeAlertResult("Sai roi phai la " + item.eng + " ma`")
+        if (text == item.eng) {
+          setRight(1);
+          onChangeAlertResult("Uay gioi the dung roi ban e");
+          numRight.push(item.id);
+        } else {
+          setRight(2);
+          onChangeAlertResult("Sai roi phai la " + item.eng + " ma`");
+          numWrong.push(item.id);
+        }
       } else {
         onChangeAlertResult("");
-        return "";
       }
+      // console.log(right + "xxx");
     };
-    console.log(right + "xxx");
+    // console.log(right + "xxx");
+    console.log(numRight);
+    console.log(numWrong);
     //END CHECK AlertResult OR RIGHT
 
     if (currentQuestion < QuestionNumArr.length) {
       return (
         <View style={Styles.container}>
-          <Text style={Styles.title}>{item.vi}</Text>
+          <View>
+            <Text style={[Styles.title, { textTransform: "capitalize" }]}>
+              {item.vi}
+            </Text>
 
-          <TextInput
-            placeholder="Type Your Answer"
-            style={{ borderWidth: 2 }}
-            onChangeText={onChangeText}
-            // onBlur={onChangeText}
-            style={Styles.inputt}
-          ></TextInput>
-          {/* <Text>{text}</Text> */}
+            <TextInput
+              placeholder="Type Your Answer"
+              style={{ borderWidth: 2 }}
+              onChangeText={onChangeText}
+              style={Styles.inputt}
+            ></TextInput>
 
-          {text == null ? (
-            ""
-          ) : item.eng == text ? (
-            <Image
-              source="https://i.pinimg.com/564x/06/a9/71/06a9710220271892169d285f7b993742.jpg"
-              style={{ height: "auto", with: 250 }}
-            ></Image>
-          ) : (
-            <Image
-              source="https://i.pinimg.com/564x/4d/26/83/4d2683793138a73fa25e57773006f3c0.jpg"
-              style={{ height: "auto", with: 250 }}
-            ></Image>
-          )}
+            {right == 1 ? (
+              <View
+                style={[
+                  {
+                    backgroundColor: "#2bff1880",
+                    borderColor: "#00d600d4",
+                  },
+                  Styles.AlrertBox,
+                ]}
+              >
+                <Text style={[Styles.alertResult, { color: "black" }]}>
+                  {AlertResult}
+                </Text>
+                <Text style={[Styles.alertResult, { color: "#ff5e00" }]}>
+                  {item.na}
+                </Text>
+                <Image
+                  source="https://i.pinimg.com/originals/4d/26/83/4d2683793138a73fa25e57773006f3c0.png"
+                  style={{ height: 100, width: 100, textAlign: "center" }}
+                ></Image>
+              </View>
+            ) : right == 2 ? (
+              <View
+                style={[
+                  {
+                    backgroundColor: "#ff000033",
+                    borderColor: "#ff000087",
+                  },
+                  Styles.AlrertBox,
+                ]}
+              >
+                <Text style={[Styles.alertResult, { color: "black" }]}>
+                  {AlertResult}
+                </Text>
+                <Text style={[Styles.alertResult, { color: "red" }]}>
+                  {item.na}
+                </Text>
+                <Image
+                  source="https://i.pinimg.com/originals/06/a9/71/06a9710220271892169d285f7b993742.png"
+                  style={{ height: 100, width: 100, textAlign: "center" }}
+                ></Image>
+              </View>
+            ) : (
+              ""
+            )}
+          </View>
 
-          <Text style={Styles.alertResult}> {AlertResult} </Text>
-
-          <Text></Text>
           {/* {console.log(route.route.params.id)} */}
 
           {AlertResult != "" ? Next : Check}
         </View>
       );
     } else {
-      return (
-        <View style={Styles.container}>
-          <Text>End Exercise</Text>
-        </View>
-      );
     }
   };
 
-  return (
-    <FlatList
-      data={Exercise}
-      renderItem={({ item, index }) => {
-        // console.log(item);
+  return currentQuestion < QuestionNumArr.length ? (
+    <View style={Styles.container}>
+      {Exercise.map((item) => {
         if (route.route.params.type == "VA") {
-          return <MainViewsVietAnh item={item}></MainViewsVietAnh>;
+          return (
+            <MainViewsVietAnh
+              item={item}
+              style={Styles.container}
+            ></MainViewsVietAnh>
+          );
         } else {
           return (
             <View>
@@ -193,31 +260,31 @@ export default function excercise(route) {
             </View>
           );
         }
-      }}
-      keyExtractor={(item, index) => index}
-      contentContainerStyle={Styles.container}
-    />
+      })}
+    </View>
+  ) : (
+    <Result></Result>
   );
 }
 
 const Styles = StyleSheet.create({
   container: {
-    flex: 1,
     padding: 5,
     justifyContent: "space-between",
     height: "100%",
+    backgroundColor: "white",
   },
   title: {
-    fontSize: 25,
+    fontSize: 27,
     fontWeight: 700,
     color: "black",
     width: "100%",
     textAlign: "center",
+    marginTop: 10,
   },
   alertResult: {
     fontSize: 20,
     fontWeight: 600,
-    color: "red",
     textAlign: "center",
     marginTop: 10,
     marginBottom: 10,
@@ -236,5 +303,23 @@ const Styles = StyleSheet.create({
   Button: {
     fontSize: 20,
     borderRadius: 5,
+  },
+  AlrertBox: {
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    borderWidth: 2,
+    borderRadius: 10,
+    marginTop: 20,
+  },
+  percent: {
+    fontSize: 27,
+    fontWeight: 600,
+    marginTop: 5,
+  },
+  finalRight: {
+    fontSize: 20,
+    fontWeight: 600,
+    marginTop: 20,
   },
 });
