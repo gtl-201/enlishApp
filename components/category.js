@@ -29,7 +29,7 @@ const Category = (props) => {
       <View style={{ height: "100%" }}>
         <Text style={styles.title}>Basic:</Text>
         <View style={styles.flexRow}>
-          <TouchableOpacity style={styles.box3} onPress={()=>navigation.navigate("Exercise")}>
+          <TouchableOpacity style={styles.box3}>
             <Image source={HeadPhone} style={styles.img}></Image>
             <Text style={styles.content}>audio & video</Text>
           </TouchableOpacity>

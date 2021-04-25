@@ -1,6 +1,14 @@
 import React, { useState, Component } from "react";
-import { StyleSheet, View, Text, TextInput, Button, Image } from "react-native";
-import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  Button,
+  Image,
+  TouchableOpacity,
+} from "react-native";
+import { FlatList } from "react-native-gesture-handler";
 
 export default function excercise(route) {
   const Type = () => {
@@ -74,6 +82,20 @@ export default function excercise(route) {
     return ranNums;
   };
 
+  const randomWrong = () => {
+    var numsWrong = [1, 2, 3, 4, 5],
+      ranWrong = [],
+      i = numsWrong.length,
+      j = 0;
+
+    while (i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      ranWrong.push(numsWrong[j]);
+      numsWrong.splice(j, 1);
+    }
+    return ranWrong;
+  };
+
   const [QuestionNumArr, setQuestionNumArr] = React.useState(random());
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -97,10 +119,9 @@ export default function excercise(route) {
   // console.log(currentQuestion);
   // console.log(Url());
 
+  //START FETCH JSON
   const [isLoading, setLoading] = useState(true);
   const [Exercise, setData] = useState([]);
-
-  //START FETCH JSON
   const put = () => {
     if (isLoading == true) {
       fetch(Url())
@@ -122,6 +143,7 @@ export default function excercise(route) {
         Url();
         setLoading(true);
         put();
+        onChangeTextVi(null);
       }}
       color="#00ce00"
       style={[Styles.Button]}
@@ -251,6 +273,203 @@ export default function excercise(route) {
     } else {
     }
   };
+  const [WrongChoose, setWrongChoose] = React.useState(randomWrong());
+  const randomIndex = Math.floor(Math.random() * (4 + 1));
+  // console.log(randomIndex);
+  const [textVi, onChangeTextVi] = React.useState(null);
+
+  console.log(textVi);
+
+  const CheckVi = ({ item }) => {
+    if (textVi != null) {
+      if (textVi == item.vi) {
+        numRight.push(item.id);
+        return (
+          <View style={Styles.container}>
+            <View>
+              <View
+                style={[
+                  {
+                    backgroundColor: "#2bff2b45",
+                    borderColor: "#00d600d4",
+                  },
+                  Styles.AlrertBox,
+                ]}
+              >
+                <Text style={[Styles.alertResult, { color: "black" }]}>
+                  Chuẩn rồi chuẩn rồi chuẩn rồi hie hie
+                </Text>
+                <Text style={[Styles.alertResult, { color: "#ff5e00" }]}>
+                  {item.na}
+                </Text>
+                <Image
+                  source="https://i.pinimg.com/originals/4d/26/83/4d2683793138a73fa25e57773006f3c0.png"
+                  style={{ height: 100, width: 100, textAlign: "center" }}
+                ></Image>
+              </View>
+            </View>
+          </View>
+        );
+      } else {
+        numWrong.push(item.id);
+        return (
+          <View
+            style={[
+              {
+                backgroundColor: "#ff000033",
+                borderColor: "#ff000087",
+              },
+              Styles.AlrertBox,
+            ]}
+          >
+            <Text style={[Styles.alertResult, { color: "black" }]}>
+              Bạn đen thôi phải là '{item.vi}' nhé
+            </Text>
+            <Text style={[Styles.alertResult, { color: "red" }]}>
+              {item.na}
+            </Text>
+            <Image
+              source="https://i.pinimg.com/originals/06/a9/71/06a9710220271892169d285f7b993742.png"
+              style={{ height: 100, width: 100, textAlign: "center" }}
+            ></Image>
+          </View>
+        );
+      }
+    } else {
+      return "";
+    }
+  };
+  // console.log(numRight)
+  // console.log(numWrong)
+
+  const MainViewsAnhViet = ({ item }) => {
+    if (currentQuestion < QuestionNumArr.length) {
+      return (
+        <View style={Styles.container}>
+          <View>
+            <Text style={[Styles.title, { textTransform: "capitalize" }]}>
+              {item.eng}
+            </Text>
+            {/* {console.log(item)} */}
+            {textVi == null ? (
+              randomIndex == 1 ? (
+                <View>
+                  <TouchableOpacity onPress={() => onChangeTextVi(item.vi)}>
+                    {item.vi}
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() =>
+                      onChangeTextVi(item.wrongVi[WrongChoose[0]].content)
+                    }
+                  >
+                    {item.wrongVi[WrongChoose[0]].content}
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() =>
+                      onChangeTextVi(item.wrongVi[WrongChoose[1]].content)
+                    }
+                  >
+                    {item.wrongVi[WrongChoose[1]].content}
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() =>
+                      onChangeTextVi(item.wrongVi[WrongChoose[2]].content)
+                    }
+                  >
+                    {item.wrongVi[WrongChoose[2]].content}
+                  </TouchableOpacity>
+                </View>
+              ) : randomIndex == 2 ? (
+                <View>
+                  <TouchableOpacity
+                    onPress={() =>
+                      onChangeTextVi(item.wrongVi[WrongChoose[0]].content)
+                    }
+                  >
+                    {item.wrongVi[WrongChoose[0]].content}
+                  </TouchableOpacity>{" "}
+                  <TouchableOpacity onPress={() => onChangeTextVi(item.vi)}>
+                    {item.vi}
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() =>
+                      onChangeTextVi(item.wrongVi[WrongChoose[1]].content)
+                    }
+                  >
+                    {item.wrongVi[WrongChoose[1]].content}
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() =>
+                      onChangeTextVi(item.wrongVi[WrongChoose[2]].content)
+                    }
+                  >
+                    {item.wrongVi[WrongChoose[2]].content}
+                  </TouchableOpacity>
+                </View>
+              ) : randomIndex == 3 ? (
+                <View>
+                  <TouchableOpacity
+                    onPress={() =>
+                      onChangeTextVi(item.wrongVi[WrongChoose[0]].content)
+                    }
+                  >
+                    {item.wrongVi[WrongChoose[0]].content}
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() =>
+                      onChangeTextVi(item.wrongVi[WrongChoose[1]].content)
+                    }
+                  >
+                    {item.wrongVi[WrongChoose[1]].content}
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => onChangeTextVi(item.vi)}>
+                    {item.vi}
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() =>
+                      onChangeTextVi(item.wrongVi[WrongChoose[2]].content)
+                    }
+                  >
+                    {item.wrongVi[WrongChoose[2]].content}
+                  </TouchableOpacity>
+                </View>
+              ) : (
+                <View>
+                  <TouchableOpacity
+                    onPress={() =>
+                      onChangeTextVi(item.wrongVi[WrongChoose[0]].content)
+                    }
+                  >
+                    {item.wrongVi[WrongChoose[0]].content}
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() =>
+                      onChangeTextVi(item.wrongVi[WrongChoose[1]].content)
+                    }
+                  >
+                    {item.wrongVi[WrongChoose[1]].content}
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() =>
+                      onChangeTextVi(item.wrongVi[WrongChoose[2]].content)
+                    }
+                  >
+                    {item.wrongVi[WrongChoose[2]].content}
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => onChangeTextVi(item.vi)}>
+                    {item.vi}
+                  </TouchableOpacity>
+                </View>
+              )
+            ) : (
+              <CheckVi item={item}></CheckVi>
+            )}
+          </View>
+          {textVi != null ? Next : ""}
+        </View>
+      );
+    }
+  };
 
   return currentQuestion < QuestionNumArr.length ? (
     <View style={Styles.container}>
@@ -262,10 +481,17 @@ export default function excercise(route) {
               style={Styles.container}
             ></MainViewsVietAnh>
           );
+        } else if (route.route.params.type == "AV") {
+          return (
+            <MainViewsAnhViet
+              item={item}
+              style={Styles.container}
+            ></MainViewsAnhViet>
+          );
         } else {
           return (
             <View>
-              <Text>huhu</Text>
+              <Text>Listen Baby</Text>
             </View>
           );
         }
