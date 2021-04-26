@@ -9,8 +9,19 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
+import SoundPlayer from "react-native-sound-player";
+import sound from "react-native-sound-player";
+// import Right from "../asset/audio/right.mp3"
+// import Wrong from "../asset/audio/wrong.mp3"
 
+// const playRight = () => {
+//   SoundPlayer.play("../asset/audio/right.mp3");
+// };
+// const playWrong = () => {
+//   SoundPlayer.play("../asset/audio/wrong.mp3");
+// };
 export default function excercise(route) {
+  // playRight()
   const Type = () => {
     return route.route.params.type == "AV"
       ? "Anh-Việt"
@@ -68,7 +79,7 @@ export default function excercise(route) {
   }, [navigation]);
   //END HEADER TITLE
 
-  const random = () => {
+  const ran = () => {
     var nums = [1, 2, 3, 4, 5, 6, 7, 8],
       ranNums = [],
       i = nums.length,
@@ -83,20 +94,21 @@ export default function excercise(route) {
   };
 
   const randomWrong = () => {
-    var numsWrong = [1, 2, 3, 4, 5],
+    var numsWrong = [0, 1, 2, 3, 4, 5, 6],
       ranWrong = [],
       i = numsWrong.length,
       j = 0;
 
     while (i--) {
-      j = Math.floor(Math.random() * (i + 1));
+      j = Math.floor(Math.random() * i);
       ranWrong.push(numsWrong[j]);
       numsWrong.splice(j, 1);
     }
     return ranWrong;
   };
+  // console.log(randomWrong())
 
-  const [QuestionNumArr, setQuestionNumArr] = React.useState(random());
+  const [QuestionNumArr, setQuestionNumArr] = React.useState(ran());
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
@@ -199,8 +211,8 @@ export default function excercise(route) {
       // console.log(right + "xxx");
     };
     // console.log(right + "xxx");
-    console.log(numRight);
-    console.log(numWrong);
+    // console.log(numRight);
+    // console.log(numWrong);
     //END CHECK AlertResult OR RIGHT
 
     if (currentQuestion < QuestionNumArr.length) {
@@ -273,12 +285,11 @@ export default function excercise(route) {
     } else {
     }
   };
-  const [WrongChoose, setWrongChoose] = React.useState(randomWrong());
-  const randomIndex = Math.floor(Math.random() * (4 + 1));
-  // console.log(randomIndex);
+  const WrongChoose = randomWrong();
+  const randomIndex = Math.floor(Math.random() * (4 + 0));
   const [textVi, onChangeTextVi] = React.useState(null);
 
-  console.log(textVi);
+  console.log(WrongChoose);
 
   const CheckVi = ({ item }) => {
     if (textVi != null) {
@@ -300,7 +311,7 @@ export default function excercise(route) {
                   Chuẩn rồi chuẩn rồi hie hie
                 </Text>
                 <Text style={[Styles.alertResult, { color: "#ff5e00" }]}>
-                  {item.na}
+                  {item.vi}
                 </Text>
                 <Image
                   source="https://i.pinimg.com/originals/4d/26/83/4d2683793138a73fa25e57773006f3c0.png"
@@ -341,7 +352,7 @@ export default function excercise(route) {
   };
   // console.log(numRight)
   // console.log(numWrong)
-
+  console.log(randomIndex + "xxxx");
   const MainViewsAnhViet = ({ item }) => {
     if (currentQuestion < QuestionNumArr.length) {
       return (
@@ -350,16 +361,19 @@ export default function excercise(route) {
             <Text style={[Styles.title, { textTransform: "capitalize" }]}>
               {item.eng}
               <br />
-              <Text style={{color:"gray",fontSize:20}}>/{item.na}/</Text> 
-              <br/>
-              <Text style={{color:"gray",fontSize:20,fontWeight:400}}>---= Tab To Your Answer =---</Text>
+              <Text style={{ color: "gray", fontSize: 20 }}>/{item.na}/</Text>
+              <br />
+              <Text style={{ color: "gray", fontSize: 20, fontWeight: 400 }}>
+                ---= Tab To Your Answer =---
+              </Text>
             </Text>
-           
 
             <Text></Text>
-            {/* {console.log(item)} */}
+            {console.log(item)}
+
+            {console.log(randomWrong())}
             {textVi == null ? (
-              randomIndex == 1 ? (
+              randomIndex == 0 ? (
                 <View>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -392,7 +406,7 @@ export default function excercise(route) {
                     {item.wrongVi[WrongChoose[2]].content}
                   </TouchableOpacity>
                 </View>
-              ) : randomIndex == 2 ? (
+              ) : randomIndex == 1 ? (
                 <View>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -425,7 +439,7 @@ export default function excercise(route) {
                     {item.wrongVi[WrongChoose[2]].content}
                   </TouchableOpacity>
                 </View>
-              ) : randomIndex == 3 ? (
+              ) : randomIndex == 2 ? (
                 <View>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -554,7 +568,7 @@ const Styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 10,
     marginBottom: 10,
-    textTransform:"capitalize"
+    textTransform: "capitalize",
   },
   inputt: {
     fontSize: 20,
@@ -593,12 +607,12 @@ const Styles = StyleSheet.create({
     padding: 10,
     margin: 5,
     borderWidth: 2,
-    borderColor:"#8080808f",
+    borderColor: "#8080808f",
     backgroundColor: "#fcfcfc30",
     fontSize: 18,
     borderRadius: 8,
-    textTransform:"capitalize",
-    fontWeight:600,
-    textAlign:"center"
+    textTransform: "capitalize",
+    fontWeight: 600,
+    textAlign: "center",
   },
 });

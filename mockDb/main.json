@@ -9,91 +9,35 @@
     },
     {
       "id": 2,
-      "title": "Job In Life",
+      "title": "activity",
       "VA": 10,
       "AV": 20,
       "L": 100
     },
     {
       "id": 3,
-      "title": "Job In Life",
+      "title": "fruite",
       "VA": 70,
       "AV": 70,
       "L": 75
     },
     {
       "id": 4,
-      "title": "Job In Life",
+      "title": "furniture",
       "VA": 0,
       "AV": 0,
       "L": 0
     },
     {
       "id": 5,
-      "title": "Job In Life",
+      "title": "street",
       "VA": 0,
       "AV": 0,
       "L": 0
     },
     {
       "id": 6,
-      "title": "Job In Life",
-      "VA": 100,
-      "AV": 90,
-      "L": 90
-    },
-    {
-      "id": 7,
-      "title": "Job In Life",
-      "VA": 0,
-      "AV": 0,
-      "L": 0
-    },
-    {
-      "id": 8,
-      "title": "Job In Life",
-      "VA": 0,
-      "AV": 0,
-      "L": 0
-    },
-    {
-      "id": 9,
-      "title": "Job In Life",
-      "VA": 0,
-      "AV": 0,
-      "L": 0
-    },
-    {
-      "id": 10,
-      "title": "Job In Life",
-      "VA": 0,
-      "AV": 0,
-      "L": 0
-    },
-    {
-      "id": 11,
-      "title": "Job In Life",
-      "VA": 0,
-      "AV": 0,
-      "L": 0
-    },
-    {
-      "id": 12,
-      "title": "Job In Life",
-      "VA": 0,
-      "AV": 0,
-      "L": 0
-    },
-    {
-      "id": 13,
-      "title": "Job In Life",
-      "VA": 0,
-      "AV": 0,
-      "L": 0
-    },
-    {
-      "id": 14,
-      "title": "Job In Life",
+      "title": "street",
       "VA": 0,
       "AV": 0,
       "L": 0
@@ -258,7 +202,7 @@
       "wrongVi": [
         {
           "index": 1,
-          "content": "bảo vệ"
+          "content": "cai ngục"
         },
         {
           "index": 2,
@@ -266,19 +210,19 @@
         },
         {
           "index": 3,
-          "content": "nhân viên vệ sinh"
+          "content": "nv y tế"
         },
         {
           "index": 4,
-          "content": "thợ sửa ống nước"
+          "content": "pháp y"
         },
         {
           "index": 5,
-          "content": "người mẫu"
+          "content": "tù nhân"
         },
         {
           "index": 6,
-          "content": "trẻ  trâu"
+          "content": "đầu bếp"
         }
       ]
     },
@@ -291,15 +235,15 @@
       "wrongVi": [
         {
           "index": 1,
-          "content": "bảo vệ"
+          "content": "nv phát triển phần mềm"
         },
         {
           "index": 2,
-          "content": "công an"
+          "content": "nv thiết kế"
         },
         {
           "index": 3,
-          "content": "nhân viên vệ sinh"
+          "content": "nv vệ sinh"
         },
         {
           "index": 4,
@@ -307,11 +251,11 @@
         },
         {
           "index": 5,
-          "content": "người mẫu"
+          "content": "anh da đen"
         },
         {
           "index": 6,
-          "content": "trẻ  trâu"
+          "content": "thứ lười biếng"
         }
       ]
     },
@@ -324,27 +268,27 @@
       "wrongVi": [
         {
           "index": 1,
-          "content": "bảo vệ"
+          "content": "quan toà"
         },
         {
           "index": 2,
-          "content": "công an"
+          "content": "người phán sử"
         },
         {
           "index": 3,
-          "content": "nhân viên vệ sinh"
+          "content": "lính"
         },
         {
           "index": 4,
-          "content": "thợ sửa ống nước"
+          "content": "đẹp trai"
         },
         {
           "index": 5,
-          "content": "người mẫu"
+          "content": "dại gái"
         },
         {
           "index": 6,
-          "content": "trẻ  trâu"
+          "content": "giám đốc"
         }
       ]
     },
@@ -357,23 +301,23 @@
       "wrongVi": [
         {
           "index": 1,
-          "content": "bảo vệ"
+          "content": "lập trình viên"
         },
         {
           "index": 2,
-          "content": "công an"
+          "content": "siêu nhân"
         },
         {
           "index": 3,
-          "content": "nhân viên vệ sinh"
+          "content": "nv an ninh mạng"
         },
         {
           "index": 4,
-          "content": "thợ sửa ống nước"
+          "content": "nv thiết kế"
         },
         {
           "index": 5,
-          "content": "người mẫu"
+          "content": "nhà tạo mẫu tóc"
         },
         {
           "index": 6,
@@ -390,23 +334,23 @@
       "wrongVi": [
         {
           "index": 1,
-          "content": "bảo vệ"
+          "content": "nv tư vấn"
         },
         {
           "index": 2,
-          "content": "công an"
+          "content": "nv tiếp thị"
         },
         {
           "index": 3,
-          "content": "nhân viên vệ sinh"
+          "content": "học sinh giỏi"
         },
         {
           "index": 4,
-          "content": "thợ sửa ống nước"
+          "content": "thợ sửa ống nước may mắn"
         },
         {
           "index": 5,
-          "content": "người mẫu"
+          "content": "dảk dảk brunh brunh"
         },
         {
           "index": 6,
@@ -423,11 +367,11 @@
       "wrongVi": [
         {
           "index": 1,
-          "content": "bảo vệ"
+          "content": "thu ngân"
         },
         {
           "index": 2,
-          "content": "công an"
+          "content": "kiểm kho"
         },
         {
           "index": 3,
@@ -443,7 +387,7 @@
         },
         {
           "index": 6,
-          "content": "trẻ  trâu"
+          "content": "quản lý"
         }
       ]
     },
@@ -456,7 +400,7 @@
       "wrongVi": [
         {
           "index": 1,
-          "content": "bảo vệ"
+          "content": "nhà định hướng"
         },
         {
           "index": 2,
@@ -464,11 +408,11 @@
         },
         {
           "index": 3,
-          "content": "nhân viên vệ sinh"
+          "content": "lãnh đạo"
         },
         {
           "index": 4,
-          "content": "thợ sửa ống nước"
+          "content": "nhà thiết kế thười trang"
         },
         {
           "index": 5,
@@ -476,109 +420,9 @@
         },
         {
           "index": 6,
-          "content": "trẻ  trâu"
+          "content": "trẩu tre"
         }
       ]
-    }
-  ],
-  "exerciseUnit2DB": [
-    {
-      "id": 1,
-      "type": "",
-      "eng": "absolute",
-      "vi": "mượt mà"
-    },
-    {
-      "id": 2,
-      "type": "",
-      "eng": "absolute",
-      "vi": "mượt mà"
-    },
-    {
-      "id": 3,
-      "type": "",
-      "eng": "absolute",
-      "vi": "mượt mà"
-    },
-    {
-      "id": 4,
-      "type": "",
-      "eng": "absolute",
-      "vi": "mượt mà"
-    },
-    {
-      "id": 5,
-      "type": "",
-      "eng": "absolute",
-      "vi": "mượt mà"
-    },
-    {
-      "id": 6,
-      "type": "",
-      "eng": "absolute",
-      "vi": "mượt mà"
-    },
-    {
-      "id": 7,
-      "type": "",
-      "eng": "absolute",
-      "vi": "mượt mà"
-    },
-    {
-      "id": 8,
-      "type": "",
-      "eng": "absolute",
-      "vi": "mượt mà"
-    }
-  ],
-  "exerciseUnit3DB": [
-    {
-      "id": 1,
-      "type": "",
-      "eng": "absolute",
-      "vi": "mượt mà"
-    },
-    {
-      "id": 2,
-      "type": "",
-      "eng": "absolute",
-      "vi": "mượt mà"
-    },
-    {
-      "id": 3,
-      "type": "",
-      "eng": "absolute",
-      "vi": "mượt mà"
-    },
-    {
-      "id": 4,
-      "type": "",
-      "eng": "absolute",
-      "vi": "mượt mà"
-    },
-    {
-      "id": 5,
-      "type": "",
-      "eng": "absolute",
-      "vi": "mượt mà"
-    },
-    {
-      "id": 6,
-      "type": "",
-      "eng": "absolute",
-      "vi": "mượt mà"
-    },
-    {
-      "id": 7,
-      "type": "",
-      "eng": "absolute",
-      "vi": "mượt mà"
-    },
-    {
-      "id": 8,
-      "type": "",
-      "eng": "absolute",
-      "vi": "mượt mà"
     }
   ],
   "storeDB": [
@@ -589,7 +433,7 @@
       "author": "gtl-201",
       "des": "This book suiable for beginer Lear English",
       "price": 10,
-      "readDemo":"Improve your Business & Social English conversation Hello I am experienced in teaching conversational English, a native English speaker and currently living in Spain. We can work together to talk about a wide range of topics related to business or daily life or structure our classes to your specific requirements. Why choose Sharron G. 'Sharron is a very friendly and calm person, she knows how to create a warm atmosphere in her lessons. Sharron speaks very clearly, I understand all she talks about. She uses all facilities of Preply: all fields of Notes, conversation challenges etc. It is very easy and interesting to speak with her.'"
+      "readDemo":"IEZhbWlseSBhbmQgRnJpZW5kcyBsw6AgY2jGsMahbmcgdHLDrG5oIGjhu41jIHRp4bq/bmcgQW5oIGJhbyBn4buTbSAzIGPhuqVwIMSR4buZIGTDoG5oIGNobyBo4buNYyBzaW5oIHRp4buDdSBo4buNYy4NCg0KIFPDoWNoIHPhu60gZOG7pW5nIGNoxrDGoW5nIHRyw6xuaCBnaeG6o25nIGThuqF5IG5n4buvIHBow6FwIHNvbmcgc29uZyBsdXnhu4duIHThuq1wIGPDoWMga8SpIG7Eg25nIHbDoCBuZ+G7ryDDom0uIFbhu5tpIGNoxrDGoW5nIHRyw6xuaCBk4bqheSB2w6AgaOG7jWMgbmjGsCB0aOG6vywgaOG7jWMgc2luaCBjw7MgdGjhu4MgcGjDoXQgdHJp4buDbiDEkcaw4bujYyBz4buxIHThu7EgdGluIHbDoCBraOG6oyBuxINuZyBnaWFvIHRp4bq/cCB0aeG6v25nIEFuaCBoaeG7h3UgcXXhuqMsIGPFqW5nIG5oxrAgY8OhYyBlbSBjw7MgdGjhu4MgaGnhu4N1IHbDoCB44butIGzDrSB0aMO0bmcgdGluIHThu6sgbmhp4buBdSBuZ3Xhu5NuIGtow6FjIG5oYXUuDQoNCiBGYW1pbHkgYW5kIEZyaWVuZHMga+G6v3QgaOG7o3AgaGnhu4d1IHF14bqjIHBoxrDGoW5nIHBow6FwIGdp4bqjbmcgZOG6oXkgdGnhur9uZyBBbmggY+G7p2EgbmfGsOG7nWkgYuG6o24geOG7qSB24bubaSBwaMawxqFuZyBwaMOhcCBnaeG6o25nIGThuqF5IHRp4bq/bmcgQW5oIGNobyBuZ8aw4budaSBo4buNYyBuZ2/huqFpIG5n4buvLg=="
     },
     {
       "id": 2,
@@ -598,7 +442,7 @@
       "author": "Gart William",
       "des": "Romantic story about girl and her dog",
       "price": 15,
-      "readDemo":"olala khong co j o day hiehiehie hiehiehie hiehiehie hiehiehie hiehiehie"
+      "readDemo":""
     },
     {
       "id": 3,
@@ -607,7 +451,7 @@
       "author": "West of Sun",
       "des": "Vintage Contemporaries",
       "price": 20,
-      "readDemo":"Chua co bo Chua co bo Chua co bo Chua co bo Chua co bo Chua co bo Chua co bo "
+      "readDemo":""
     }
   ]
 }

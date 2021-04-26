@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/Ionicons";
+import base64 from 'react-native-base64'
+import utf8 from 'utf8'
 
 const MainBook = (route) => {
   const { navigation } = route;
@@ -22,7 +24,7 @@ const MainBook = (route) => {
           </View>
           <View>
             <Text style={[styles.title, styles.black]}>{item.name}</Text>
-            <Text style={[styles.content, styles.black]}>{item.readDemo}</Text>
+            <Text style={[styles.content, styles.black]}>{utf8.decode(base64.decode(item.readDemo))}</Text>
           </View>
         </ScrollView>
         <TouchableOpacity
@@ -47,13 +49,13 @@ const MainBook = (route) => {
             <Image source={item.url} style={styles.image} />
           </View>
           <View>
-            <Text style={[styles.title, styles.white]}>{item.name}</Text>
-            <Text style={[styles.content, styles.white]}>{item.readDemo}</Text>
+            <Text style={[styles.title, {color:"white"}]}>{item.name}</Text>
+            <Text style={[styles.content, styles.lightwhite]}>{utf8.decode(base64.decode(item.readDemo))}</Text>
           </View>
         </ScrollView>
         <TouchableOpacity
           onPress={() => (dark == true ? changeDark(false) : changeDark(true))}
-          style={[styles.light, styles.white]}
+          style={[styles.light, styles.lightwhite]}
         >
           <Icon
             name="contrast-outline"
@@ -90,8 +92,8 @@ const styles = StyleSheet.create({
   black: {
     color: "black",
   },
-  white: {
-    color: "white",
+  lightwhite: {
+    color: "#e8e7e7f5",
   },
   light: { position: "absolute", bottom: 10, right: 10 },
 });
