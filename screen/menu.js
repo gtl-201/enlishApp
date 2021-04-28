@@ -1,4 +1,3 @@
-
 import React from "react"
 import {Text,View} from "react-native"
 
@@ -17,7 +16,6 @@ export default function Menu({props}){
       });
     }, [navigation]); 
 
-    return(
-        <View><Text>Hihi</Text></View>
-    )
+    return <View><Text>Hihi</Text></View>
+    
 }

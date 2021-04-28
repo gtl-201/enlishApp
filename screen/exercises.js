@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
 
+
 const Exercise = (props) => {
   const { navigation } = props;
 
@@ -16,10 +17,14 @@ const Exercise = (props) => {
     });
   }, [navigation]);
 
+
+  // var MainUrl = MainUrl.replace("return ", "");
+  // console.log(MainUrl)
+
   const [isLoading, setLoading] = useState(true);
   const [Exercises, setData] = useState([]);
   React.useEffect(() => {
-    fetch("http://localhost:3000/exercisesDB")
+    fetch("https://my-json-server.typicode.com/gtl-201/serverJson/exercisesDB")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))
@@ -78,9 +83,9 @@ const Exercise = (props) => {
           }
           style={styles.boxInSight}
         >
-          <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
-            {" "}
-            Anh - Việt{" "}
+          <Text style={{ fontSize: 14, fontWeight: '600', color: "black" }}>
+            
+            Anh - Việt
           </Text>
           <AV item={item}></AV>
         </TouchableOpacity>
@@ -95,9 +100,9 @@ const Exercise = (props) => {
           }
           style={styles.boxInSight}
         >
-          <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
-            {" "}
-            Việt - Anh{" "}
+          <Text style={{ fontSize: 14, fontWeight: '600', color: "black" }}>
+            
+            Việt - Anh
           </Text>
           <VA item={item}></VA>
         </TouchableOpacity>
@@ -112,9 +117,9 @@ const Exercise = (props) => {
           }
           style={styles.boxInSight}
         >
-          <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
-            {" "}
-            Listen{" "}
+          <Text style={{ fontSize: 14, fontWeight: '600', color: "black" }}>
+            
+            Listen
           </Text>
           <L item={item}></L>
         </TouchableOpacity>
@@ -133,9 +138,9 @@ const Exercise = (props) => {
           }
           style={styles.boxInSight}
         >
-          <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
-            {" "}
-            Anh - Việt{" "}
+          <Text style={{ fontSize: 14, fontWeight: '600', color: "black" }}>
+            
+            Anh - Việt
           </Text>
           <AV item={item}></AV>
         </TouchableOpacity>
@@ -150,9 +155,9 @@ const Exercise = (props) => {
           }
           style={styles.boxInSight}
         >
-          <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
-            {" "}
-            Việt - Anh{" "}
+          <Text style={{ fontSize: 14, fontWeight: '600', color: "black" }}>
+            
+            Việt - Anh
           </Text>
           <VA item={item}></VA>
         </TouchableOpacity>
@@ -167,9 +172,9 @@ const Exercise = (props) => {
           }
           style={styles.boxInSight}
         >
-          <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
-            {" "}
-            Listen{" "}
+          <Text style={{ fontSize: 14, fontWeight: '600', color: "black" }}>
+            
+            Listen
           </Text>
           <L item={item}></L>
         </TouchableOpacity>
@@ -188,9 +193,9 @@ const Exercise = (props) => {
           }
           style={styles.boxInSight}
         >
-          <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
-            {" "}
-            Anh - Việt{" "}
+          <Text style={{ fontSize: 14, fontWeight: '600', color: "black" }}>
+            
+            Anh - Việt
           </Text>
           <AV item={item}></AV>
         </TouchableOpacity>
@@ -205,9 +210,9 @@ const Exercise = (props) => {
           }
           style={styles.boxInSight}
         >
-          <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
-            {" "}
-            Việt - Anh{" "}
+          <Text style={{ fontSize: 14, fontWeight: '600', color: "black" }}>
+            
+            Việt - Anh
           </Text>
           <VA item={item}></VA>
         </TouchableOpacity>
@@ -222,9 +227,9 @@ const Exercise = (props) => {
           }
           style={styles.boxInSight}
         >
-          <Text style={{ fontSize: 14, fontWeight: 600, color: "black" }}>
-            {" "}
-            Listen{" "}
+          <Text style={{ fontSize: 14, fontWeight: '600', color: "black" }}>
+            
+            Listen
           </Text>
           <L item={item}></L>
         </TouchableOpacity>
@@ -233,12 +238,15 @@ const Exercise = (props) => {
   };
 
   return (
-    <View style={styles.containerHead}>
+    <View style={[styles.containerHead,{justifyContent:"space-around",width:"100%"}]}>
       <FlatList
         numColumns={2}
         data={Exercises}
-        renderItem={({ item }) => <MainBox item={item}></MainBox>}
-        contentContainerStyle={{ padding: 20 }}
+        renderItem={({ item }) => 
+        <View style={{justifyContent:"center",width:"50%",paddingHorizontal:"1%",paddingVertical:"0.5%"}}> 
+        <MainBox item={item}></MainBox>
+        </View>}
+        contentContainerStyle={{ padding: 10 ,justifyContent:"space-around"}}
       />
     </View>
   );
@@ -250,20 +258,20 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flex: 1,
     backgroundColor: "white",
+    // justifyContent:"space-around"
   },
   boxItem: {
-    width: "45%",
+    width: "100%",
     padding: 5,
     borderColor: "#005bff",
     borderWidth: 2,
-    margin: "auto",
     borderRadius: 10,
     marginBottom: 10,
     backgroundColor: "#8080800d",
   },
   id: {
     fontSize: 22,
-    fontWeight: 800,
+    fontWeight: '800',
     textAlign: "center",
     color: "#0000ff9c",
   },

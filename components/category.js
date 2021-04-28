@@ -18,17 +18,14 @@ import Story from "../asset/icons/icons8-short-48.png";
 import Store from "../asset/icons/icons8-small-business-48.png";
 import Youtobe from "../asset/icons/icons8-play-button-48.png";
 
-
-
-
 const Category = (props) => {
   // console.log(props);
-  const {navigation} = props;
+  const { navigation } = props;
   return (
     <ScrollView style={styles.container}>
       <View style={{ height: "100%" }}>
         <Text style={styles.title}>Basic:</Text>
-        <View style={styles.flexRow}>
+        <View style={[styles.flexRow, { justifyContent: "space-around" }]}>
           <TouchableOpacity style={styles.box3}>
             <Image source={HeadPhone} style={styles.img}></Image>
             <Text style={styles.content}>audio & video</Text>
@@ -44,7 +41,7 @@ const Category = (props) => {
         </View>
 
         <Text style={styles.title}>Store:</Text>
-        <View style={styles.flexRow}>
+        <View style={[styles.flexRow, { justifyContent: "space-around" }]}>
           <TouchableOpacity style={styles.box1}>
             <Image source={Store} style={styles.img}></Image>
             <Text style={styles.content}>Buy our Books</Text>
@@ -53,7 +50,7 @@ const Category = (props) => {
         </View>
 
         <Text style={styles.title}>Extend:</Text>
-        <View style={styles.flexRow}>
+        <View style={[styles.flexRow, { justifyContent: "space-around" }]}>
           <TouchableOpacity style={styles.box3}>
             <Image source={Music} style={styles.img}></Image>
             <Text style={styles.content}>music</Text>
@@ -69,18 +66,18 @@ const Category = (props) => {
         </View>
 
         {/* <Text style={styles.title}>Learn iels:</Text> */}
-        <View style={[styles.box1, { padding: 20 }]}>
+        <View style={[styles.box1, { padding: 20,marginBottom:40 }]}>
           <TouchableOpacity
             activeOpacity="0.5"
             style={[styles.box1, { padding: 0 }]}
           >
-            <Text style={styles.button}>
+            <View style={styles.button}>
               <Image
                 source={Youtobe}
                 style={{ width: 50, height: 50, marginRight: 15 }}
               ></Image>
-              See Our Course
-            </Text>
+              <Text>See Our Course</Text>
+            </View>
           </TouchableOpacity>
           <Text style={styles.content}>Contact us: +84 940 272 166</Text>
           <Text style={styles.content}>Contact us: +84 940 272 166</Text>
@@ -88,6 +85,14 @@ const Category = (props) => {
           <Text style={styles.content}>Contact us: +84 940 272 166</Text>
           <Text style={styles.content}>Contact us: +84 940 272 166</Text>
           <Text style={styles.content}>Contact us: +84 940 272 166</Text>
+          <Text style={styles.content}>Contact us: +84 940 272 166</Text>
+          <Text style={styles.content}>Contact us: +84 940 272 166</Text>
+          <Text style={styles.content}>Contact us: +84 940 272 166</Text>
+          <Text style={styles.content}>Contact us: +84 940 272 166</Text>
+          <Text style={styles.content}>Contact us: +84 940 272 166</Text>
+          <Text style={styles.content}>Contact us: +84 940 272 166</Text>
+          <Text style={styles.content}>Contact us: +84 940 272 166</Text>
+          <Text style={styles.content}>Contact bo may: +84 940 272 166</Text>
         </View>
       </View>
     </ScrollView>
@@ -97,7 +102,7 @@ const Category = (props) => {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    height:"65vh",
+    height: "65%",
     // overflow:"scroll",
   },
   flexRow: {
@@ -117,14 +122,16 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     borderRadius: 10,
     display: "flex",
+    flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    // textAlign:"center",
   },
 
   box3: {
     borderColor: "black",
     width: "30%",
-    margin: "auto",
+    // margin: "auto",
     padding: 7,
     justifyContent: "center",
     alignItems: "center",
@@ -135,7 +142,7 @@ const styles = StyleSheet.create({
     // borderWidth: 2,
     borderColor: "black",
     width: "45%",
-    margin: "auto",
+    // margin: "auto",
     padding: 7,
     justifyContent: "center",
     alignItems: "center",
@@ -146,7 +153,7 @@ const styles = StyleSheet.create({
     // borderWidth: 2,
     borderColor: "black",
     width: "100%",
-    margin: "auto",
+    // margin: "auto",
     padding: 7,
     justifyContent: "center",
     alignItems: "center",
@@ -157,8 +164,9 @@ const styles = StyleSheet.create({
   title: {
     marginLeft: -5,
     fontSize: 18,
-    fontWeight: 500,
+    fontWeight: "500",
     marginBottom: 7,
+    zIndex: 40,
   },
   img: {
     width: 40,

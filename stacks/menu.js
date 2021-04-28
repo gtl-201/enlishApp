@@ -6,6 +6,6 @@ const Stack = createStackNavigator()
 
 export default function menu(){
     return <Stack.Navigator>
-        <Stack.Screen name="Menu" component='Menu'></Stack.Screen>
+        <Stack.Screen name="Menu" component={Menu}></Stack.Screen>
     </Stack.Navigator>
 }

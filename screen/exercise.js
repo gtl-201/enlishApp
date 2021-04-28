@@ -8,18 +8,7 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
-import SoundPlayer from "react-native-sound-player";
-import sound from "react-native-sound-player";
-// import Right from "../asset/audio/right.mp3"
-// import Wrong from "../asset/audio/wrong.mp3"
 
-// const playRight = () => {
-//   SoundPlayer.play("../asset/audio/right.mp3");
-// };
-// const playWrong = () => {
-//   SoundPlayer.play("../asset/audio/wrong.mp3");
-// };
 export default function excercise(route) {
   // playRight()
   const Type = () => {
@@ -115,14 +104,14 @@ export default function excercise(route) {
   const Url = () => {
     if (currentQuestion < QuestionNumArr.length) {
       return route.route.params.id
-        ? "http://localhost:3000/exerciseunit" +
+        ? "https://my-json-server.typicode.com/gtl-201/serverJson" + "/exerciseUnit" +
             route.route.params.id +
             "DB?id=" +
             QuestionNumArr[currentQuestion]
         : null;
     } else {
       return (
-        "http://localhost:3000/exerciseunit" + route.route.params.id + "DB"
+        "https://my-json-server.typicode.com/gtl-201/serverJson" + "/exerciseUnit" + route.route.params.id + "DB"
       );
     }
   };
@@ -289,7 +278,7 @@ export default function excercise(route) {
   const randomIndex = Math.floor(Math.random() * (4 + 0));
   const [textVi, onChangeTextVi] = React.useState(null);
 
-  console.log(WrongChoose);
+  // console.log(WrongChoose);
 
   const CheckVi = ({ item }) => {
     if (textVi != null) {
@@ -352,26 +341,25 @@ export default function excercise(route) {
   };
   // console.log(numRight)
   // console.log(numWrong)
-  console.log(randomIndex + "xxxx");
+  // console.log(randomIndex + "xxxx");
   const MainViewsAnhViet = ({ item }) => {
     if (currentQuestion < QuestionNumArr.length) {
       return (
         <View style={Styles.container}>
           <View>
-            <Text style={[Styles.title, { textTransform: "capitalize" }]}>
-              {item.eng}
-              <br />
-              <Text style={{ color: "gray", fontSize: 20 }}>/{item.na}/</Text>
-              <br />
-              <Text style={{ color: "gray", fontSize: 20, fontWeight: 400 }}>
+            <View>
+              <Text style={[Styles.title, { textTransform: "capitalize" }]}>{item.eng}</Text>
+              
+              <Text style={{ color: "gray", fontSize: 20,textAlign:"center",fontWeight:"600",marginTop:5,marginBottom:10 }}>/{item.na}/</Text>
+              
+              <Text style={{ color: "gray", fontSize: 20,textAlign:"center", fontWeight: '400',marginBottom:5 }}>
                 ---= Tab To Your Answer =---
               </Text>
-            </Text>
+            </View>
 
-            <Text></Text>
-            {console.log(item)}
+            {/* {console.log(item)} */}
 
-            {console.log(randomWrong())}
+            {/* {console.log(randomWrong())} */}
             {textVi == null ? (
               randomIndex == 0 ? (
                 <View>
@@ -379,7 +367,7 @@ export default function excercise(route) {
                     style={Styles.chosseBox}
                     onPress={() => onChangeTextVi(item.vi)}
                   >
-                    {item.vi}
+                    <Text>{item.vi}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -387,7 +375,7 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[0]].content)
                     }
                   >
-                    {item.wrongVi[WrongChoose[0]].content}
+                    <Text>{item.wrongVi[WrongChoose[0]].content}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -395,7 +383,7 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[1]].content)
                     }
                   >
-                    {item.wrongVi[WrongChoose[1]].content}
+                    <Text>{item.wrongVi[WrongChoose[1]].content}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -403,7 +391,7 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[2]].content)
                     }
                   >
-                    {item.wrongVi[WrongChoose[2]].content}
+                    <Text>{item.wrongVi[WrongChoose[2]].content}</Text>
                   </TouchableOpacity>
                 </View>
               ) : randomIndex == 1 ? (
@@ -414,13 +402,13 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[0]].content)
                     }
                   >
-                    {item.wrongVi[WrongChoose[0]].content}
-                  </TouchableOpacity>{" "}
+                    <Text>{item.wrongVi[WrongChoose[0]].content}</Text>
+                  </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
                     onPress={() => onChangeTextVi(item.vi)}
                   >
-                    {item.vi}
+                    <Text>{item.vi}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -428,7 +416,7 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[1]].content)
                     }
                   >
-                    {item.wrongVi[WrongChoose[1]].content}
+                    <Text>{item.wrongVi[WrongChoose[1]].content}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -436,7 +424,7 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[2]].content)
                     }
                   >
-                    {item.wrongVi[WrongChoose[2]].content}
+                    <Text>{item.wrongVi[WrongChoose[2]].content}</Text>
                   </TouchableOpacity>
                 </View>
               ) : randomIndex == 2 ? (
@@ -447,7 +435,7 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[0]].content)
                     }
                   >
-                    {item.wrongVi[WrongChoose[0]].content}
+                    <Text>{item.wrongVi[WrongChoose[0]].content}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -455,13 +443,13 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[1]].content)
                     }
                   >
-                    {item.wrongVi[WrongChoose[1]].content}
+                    <Text>{item.wrongVi[WrongChoose[1]].content}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
                     onPress={() => onChangeTextVi(item.vi)}
                   >
-                    {item.vi}
+                    <Text>{item.vi}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -469,7 +457,7 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[2]].content)
                     }
                   >
-                    {item.wrongVi[WrongChoose[2]].content}
+                    <Text>{item.wrongVi[WrongChoose[2]].content}</Text>
                   </TouchableOpacity>
                 </View>
               ) : (
@@ -480,7 +468,7 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[0]].content)
                     }
                   >
-                    {item.wrongVi[WrongChoose[0]].content}
+                    <Text>{item.wrongVi[WrongChoose[0]].content}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -488,7 +476,7 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[1]].content)
                     }
                   >
-                    {item.wrongVi[WrongChoose[1]].content}
+                    <Text>{item.wrongVi[WrongChoose[1]].content}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -496,13 +484,13 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[2]].content)
                     }
                   >
-                    {item.wrongVi[WrongChoose[2]].content}
+                    <Text>{item.wrongVi[WrongChoose[2]].content}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
                     onPress={() => onChangeTextVi(item.vi)}
                   >
-                    {item.vi}
+                    <Text>{item.vi}</Text>
                   </TouchableOpacity>
                 </View>
               )
@@ -556,7 +544,7 @@ const Styles = StyleSheet.create({
   },
   title: {
     fontSize: 27,
-    fontWeight: 700,
+    fontWeight: '700',
     color: "black",
     width: "100%",
     textAlign: "center",
@@ -564,7 +552,7 @@ const Styles = StyleSheet.create({
   },
   alertResult: {
     fontSize: 20,
-    fontWeight: 600,
+    fontWeight: '600',
     textAlign: "center",
     marginTop: 10,
     marginBottom: 10,
@@ -572,7 +560,7 @@ const Styles = StyleSheet.create({
   },
   inputt: {
     fontSize: 20,
-    fontWeight: 500,
+    fontWeight: '500',
     color: "green",
     paddingHorizontal: 5,
     paddingVertical: 2,
@@ -595,12 +583,12 @@ const Styles = StyleSheet.create({
   },
   percent: {
     fontSize: 27,
-    fontWeight: 600,
+    fontWeight: '600',
     marginTop: 5,
   },
   finalRight: {
     fontSize: 20,
-    fontWeight: 600,
+    fontWeight: '600',
     marginTop: 20,
   },
   chosseBox: {
@@ -612,7 +600,7 @@ const Styles = StyleSheet.create({
     fontSize: 18,
     borderRadius: 8,
     textTransform: "capitalize",
-    fontWeight: 600,
+    fontWeight: '600',
     textAlign: "center",
   },
 });

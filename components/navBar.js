@@ -24,7 +24,7 @@ const Navbar = () => {
 
 const styles = StyleSheet.create({
   container: {
-    height: "6.5vh",
+    height: "6.5%",
     flexDirection: "row",
     // padding:15,
     justifyContent: "space-between",

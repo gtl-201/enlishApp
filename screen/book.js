@@ -72,7 +72,7 @@ const MainBook = (route) => {
 const styles = StyleSheet.create({
   title: {
     fontSize: 25,
-    fontWeight: 600,
+    fontWeight: '600',
     textAlign: "center",
     marginTop: 20,
     marginHorizontal: 30,

@@ -46,22 +46,28 @@ const Store = (props) => {
             }}
           >
             <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Icon
-                name="eye-outline"
-                size={19}
-                color="#8560f7"
-                style={{ marginRight: 5 }}
-              ></Icon>
-              <Text style={{ fontSize: 19, fontWeight: 500, color: "#8560f7" }}>
+              <Text>
+                <Icon
+                  name="eye-outline"
+                  size={19}
+                  color="#8560f7"
+                  style={{ marginRight: 5 }}
+                ></Icon>
+              </Text>
+              <Text
+                style={{ fontSize: 19, fontWeight: "500", color: "#8560f7" }}
+              >
                 Grid View
               </Text>
             </View>
-            <Icon
-              name="search-outline"
-              size={19}
-              color="#0f00ff"
-              fontWeight={600}
-            ></Icon>
+            <Text>
+              <Icon
+                name="search-outline"
+                size={19}
+                color="#0f00ff"
+                fontWeight={600}
+              ></Icon>
+            </Text>
           </View>
           <FlatList
             numColumns={1}
@@ -92,7 +98,12 @@ const Store = (props) => {
                         flexWrap: "wrap",
                       }}
                     >
-                      <TouchableOpacity activeOpacity={0.5} onPress={()=>navigation.navigate("BookDemo",{item:item})}>
+                      <TouchableOpacity
+                        activeOpacity={0.5}
+                        onPress={() =>
+                          navigation.navigate("BookDemo", { item: item })
+                        }
+                      >
                         <Text style={Styles.buttonLeft}>Read Demo</Text>
                       </TouchableOpacity>
                       <TouchableOpacity activeOpacity={0.5}>
@@ -106,7 +117,7 @@ const Store = (props) => {
           />
           {/* <Text>xyz</Text> */}
         </View>
-      </View>{" "}
+      </View>
     </ScrollView>
   );
 };
@@ -144,23 +155,23 @@ const Styles = StyleSheet.create({
   },
   book: {
     minWidth: "100%",
-    minHeight:"100%",
-    maxHeight:"200%"
+    minHeight: "100%",
+    maxHeight: "200%",
   },
   bookName: {
     fontSize: 20,
-    fontWeight: 700,
+    fontWeight: "700",
     color: "#2e217b",
     marginVertical: 2,
   },
   author: {
     fontSize: 17,
-    fontWeight: 700,
+    fontWeight: "700",
     color: "#808080e6",
   },
   price: {
     color: "red",
-    fontWeight: 600,
+    fontWeight: "600",
   },
 
   buttonLeft: {

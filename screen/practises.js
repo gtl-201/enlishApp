@@ -8,7 +8,7 @@ const Practises = (props) => {
   const [isLoading, setLoading] = useState(true);
   const [PractisesDb, setData] = useState([]);
   React.useEffect(() => {
-    fetch("http://localhost:3000/practisesDB")
+    fetch(MainUrl)
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))
@@ -162,7 +162,7 @@ const Practises = (props) => {
 const Styles = StyleSheet.create({
   title: {
     fontSize: 22,
-    fontWeight: 800,
+    fontWeight: '800',
     color: "#1ba1ff",
   },
   boxOut: {
@@ -183,7 +183,7 @@ const Styles = StyleSheet.create({
     borderRadius: 12,
     marginTop: 6,
     color: "black",
-    fontWeight: 600,
+    fontWeight: '600',
   },
   boxShadow: {
     shadowColor: "#000",
