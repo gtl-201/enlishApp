@@ -8,6 +8,7 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
 
 export default function excercise(route) {
   // playRight()
@@ -104,14 +105,18 @@ export default function excercise(route) {
   const Url = () => {
     if (currentQuestion < QuestionNumArr.length) {
       return route.route.params.id
-        ? "https://my-json-server.typicode.com/gtl-201/serverJson" + "/exerciseUnit" +
+        ? "https://my-json-server.typicode.com/gtl-201/serverJson" +
+            "/exerciseUnit" +
             route.route.params.id +
             "DB?id=" +
             QuestionNumArr[currentQuestion]
         : null;
     } else {
       return (
-        "https://my-json-server.typicode.com/gtl-201/serverJson" + "/exerciseUnit" + route.route.params.id + "DB"
+        "https://my-json-server.typicode.com/gtl-201/serverJson" +
+        "/exerciseUnit" +
+        route.route.params.id +
+        "DB"
       );
     }
   };
@@ -145,16 +150,18 @@ export default function excercise(route) {
         setLoading(true);
         put();
         onChangeTextVi(null);
+        onChangeRandomIndex(Math.floor(Math.random() * (4 + 0)));
       }}
       color="#00ce00"
-      style={[Styles.Button]}
     ></Button>
   );
   //END NEXT BUTTON
 
   const MainViewsVietAnh = ({ item }) => {
     const [text, onChangeText] = React.useState(null);
-    const [AlertResult, onChangeAlertResult] = React.useState("");
+    const [AlertResult, onChangeAlertResult] = React.useState(null);
+    const [Guide, onChangeGuid] = React.useState(null);
+
     let CheckPress = "not";
 
     //CHECK BUTTON
@@ -167,7 +174,6 @@ export default function excercise(route) {
           PressButton({ item });
         }}
         color="#37c137"
-        style={Styles.Button}
       ></Button>
     );
     //END CHECK BUTTON
@@ -178,13 +184,6 @@ export default function excercise(route) {
     const PressButton = ({ item }) => {
       if (CheckPress == "yes") {
         CheckPress = "not";
-        // console.log(CheckPress);
-        // console.log(text);
-        // console.log(item.eng);
-
-        // text == item.eng
-        //   ? onChangeAlertResult("Uay gioi the dung roi ban e")
-        //   : onChangeAlertResult("Sai roi phai la " + item.eng + " ma`")
         if (text == item.eng) {
           setRight(1);
           onChangeAlertResult("dảk dảk bruh bruh lmao chính xác");
@@ -195,7 +194,7 @@ export default function excercise(route) {
           numWrong.push(item.id);
         }
       } else {
-        onChangeAlertResult("");
+        onChangeAlertResult(null);
       }
       // console.log(right + "xxx");
     };
@@ -205,6 +204,47 @@ export default function excercise(route) {
     //END CHECK AlertResult OR RIGHT
 
     if (currentQuestion < QuestionNumArr.length) {
+      const string = item.eng;
+      // const usingSplit = string.split("");
+      // const usingSpread = [...string];
+      const usingArrayFrom = Array.from(string);
+      // const usingObjectAssign = Object.assign([], string);
+      console.log(usingArrayFrom);
+
+      //START Guide View
+      const [ranIndex1, onchangeRanIndex1] = React.useState(
+        Math.floor(Math.random() * (string.length + 0))
+      );
+      const [ranIndex2, onchangeRanIndex2] = React.useState(
+        Math.floor(Math.random() * (string.length + 0))
+      );
+      const [ranIndex3, onchangeRanIndex3] = React.useState(
+        Math.floor(Math.random() * (string.length + 0))
+      );
+      console.log(ranIndex1)
+      console.log(ranIndex2)
+      console.log(ranIndex3)
+
+
+      let i = 0
+      let TextTmp = ""
+      const [textt,onChangeTextt] = React.useState(null)
+      for (i = 0; i < string.length; i++) {
+        if (ranIndex1 == i || ranIndex2 == i || ranIndex3 == i) {
+          TextTmp = TextTmp.concat(usingArrayFrom[i])
+        } else {
+          TextTmp = TextTmp.concat("_")
+        }
+      }
+      // onChangeTextt(TextTmp)
+
+      const GuideViewer = (
+        <View style={{textAlign:"center"}}>
+          <Text style={{color:"#ff264c",fontWeight:"600",fontSize:25,letterSpacing:1.5}}> {TextTmp}</Text>
+        </View>
+      );
+      //END GUIDE VIEW
+
       return (
         <View style={Styles.container}>
           <View>
@@ -212,9 +252,10 @@ export default function excercise(route) {
               {item.vi}
             </Text>
 
+            {Guide != null ? GuideViewer : null}
+
             <TextInput
               placeholder="Type Your Answer"
-              style={{ borderWidth: 2 }}
               onChangeText={onChangeText}
               style={Styles.inputt}
             ></TextInput>
@@ -236,7 +277,10 @@ export default function excercise(route) {
                   {item.na}
                 </Text>
                 <Image
-                  source="https://i.pinimg.com/originals/4d/26/83/4d2683793138a73fa25e57773006f3c0.png"
+                  source={{
+                    uri:
+                      "https://i.pinimg.com/originals/4d/26/83/4d2683793138a73fa25e57773006f3c0.png",
+                  }}
                   style={{ height: 100, width: 100, textAlign: "center" }}
                 ></Image>
               </View>
@@ -257,25 +301,40 @@ export default function excercise(route) {
                   {item.na}
                 </Text>
                 <Image
-                  source="https://i.pinimg.com/originals/06/a9/71/06a9710220271892169d285f7b993742.png"
+                  source={{
+                    uri:
+                      "https://i.pinimg.com/originals/06/a9/71/06a9710220271892169d285f7b993742.png",
+                  }}
                   style={{ height: 100, width: 100, textAlign: "center" }}
                 ></Image>
               </View>
-            ) : (
-              ""
-            )}
+            ) : null}
+          </View>
+
+          <View style={{ position: "absolute", bottom: 40, right: 10 }}>
+            <TouchableOpacity
+              onPress={() =>
+                Guide != null ? onChangeGuid(null) : onChangeGuid("viewed")
+              }
+            >
+              <Icon size={30} name="eye-outline"></Icon>
+            </TouchableOpacity>
           </View>
 
           {/* {console.log(route.route.params.id)} */}
 
-          {AlertResult != "" ? Next : Check}
+          {AlertResult != null ? Next : Check}
         </View>
       );
     } else {
     }
   };
-  const WrongChoose = randomWrong();
-  const randomIndex = Math.floor(Math.random() * (4 + 0));
+  // const WrongChoose = ;
+  const [WrongChoose, onChangeWrongChoose] = React.useState(randomWrong());
+  // const randomIndex = Math.floor(Math.random() * (4 + 0));
+  const [randomIndex, onChangeRandomIndex] = React.useState(
+    Math.floor(Math.random() * (4 + 0))
+  );
   const [textVi, onChangeTextVi] = React.useState(null);
 
   // console.log(WrongChoose);
@@ -285,7 +344,7 @@ export default function excercise(route) {
       if (textVi == item.vi) {
         numRight.push(item.id);
         return (
-          <View style={Styles.container}>
+          <View style={[Styles.container, { height: "70%" }]}>
             <View>
               <View
                 style={[
@@ -303,7 +362,10 @@ export default function excercise(route) {
                   {item.vi}
                 </Text>
                 <Image
-                  source="https://i.pinimg.com/originals/4d/26/83/4d2683793138a73fa25e57773006f3c0.png"
+                  source={{
+                    uri:
+                      "https://i.pinimg.com/originals/4d/26/83/4d2683793138a73fa25e57773006f3c0.png",
+                  }}
                   style={{ height: 100, width: 100, textAlign: "center" }}
                 ></Image>
               </View>
@@ -329,14 +391,17 @@ export default function excercise(route) {
               {item.na}
             </Text>
             <Image
-              source="https://i.pinimg.com/originals/06/a9/71/06a9710220271892169d285f7b993742.png"
+              source={{
+                uri:
+                  "https://i.pinimg.com/originals/06/a9/71/06a9710220271892169d285f7b993742.png",
+              }}
               style={{ height: 100, width: 100, textAlign: "center" }}
             ></Image>
           </View>
         );
       }
     } else {
-      return "";
+      return null;
     }
   };
   // console.log(numRight)
@@ -348,18 +413,36 @@ export default function excercise(route) {
         <View style={Styles.container}>
           <View>
             <View>
-              <Text style={[Styles.title, { textTransform: "capitalize" }]}>{item.eng}</Text>
-              
-              <Text style={{ color: "gray", fontSize: 20,textAlign:"center",fontWeight:"600",marginTop:5,marginBottom:10 }}>/{item.na}/</Text>
-              
-              <Text style={{ color: "gray", fontSize: 20,textAlign:"center", fontWeight: '400',marginBottom:5 }}>
+              <Text style={[Styles.title, { textTransform: "capitalize" }]}>
+                {item.eng}
+              </Text>
+
+              <Text
+                style={{
+                  color: "gray",
+                  fontSize: 20,
+                  textAlign: "center",
+                  fontWeight: "600",
+                  marginTop: 5,
+                  marginBottom: 10,
+                }}
+              >
+                /{item.na}/
+              </Text>
+
+              <Text
+                style={{
+                  color: "gray",
+                  fontSize: 20,
+                  textAlign: "center",
+                  fontWeight: "400",
+                  marginBottom: 5,
+                }}
+              >
                 ---= Tab To Your Answer =---
               </Text>
             </View>
 
-            {/* {console.log(item)} */}
-
-            {/* {console.log(randomWrong())} */}
             {textVi == null ? (
               randomIndex == 0 ? (
                 <View>
@@ -367,7 +450,7 @@ export default function excercise(route) {
                     style={Styles.chosseBox}
                     onPress={() => onChangeTextVi(item.vi)}
                   >
-                    <Text>{item.vi}</Text>
+                    <Text style={Styles.chooseTitle}>{item.vi}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -375,7 +458,7 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[0]].content)
                     }
                   >
-                    <Text>{item.wrongVi[WrongChoose[0]].content}</Text>
+                    <Text style={Styles.chooseTitle}>{item.wrongVi[WrongChoose[0]].content}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -383,7 +466,7 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[1]].content)
                     }
                   >
-                    <Text>{item.wrongVi[WrongChoose[1]].content}</Text>
+                    <Text style={Styles.chooseTitle}>{item.wrongVi[WrongChoose[1]].content}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -391,7 +474,7 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[2]].content)
                     }
                   >
-                    <Text>{item.wrongVi[WrongChoose[2]].content}</Text>
+                    <Text style={Styles.chooseTitle}>{item.wrongVi[WrongChoose[2]].content}</Text>
                   </TouchableOpacity>
                 </View>
               ) : randomIndex == 1 ? (
@@ -402,13 +485,13 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[0]].content)
                     }
                   >
-                    <Text>{item.wrongVi[WrongChoose[0]].content}</Text>
+                    <Text style={Styles.chooseTitle}>{item.wrongVi[WrongChoose[0]].content}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
                     onPress={() => onChangeTextVi(item.vi)}
                   >
-                    <Text>{item.vi}</Text>
+                    <Text style={Styles.chooseTitle}>{item.vi}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -416,7 +499,7 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[1]].content)
                     }
                   >
-                    <Text>{item.wrongVi[WrongChoose[1]].content}</Text>
+                    <Text style={Styles.chooseTitle}>{item.wrongVi[WrongChoose[1]].content}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -424,7 +507,7 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[2]].content)
                     }
                   >
-                    <Text>{item.wrongVi[WrongChoose[2]].content}</Text>
+                    <Text style={Styles.chooseTitle}>{item.wrongVi[WrongChoose[2]].content}</Text>
                   </TouchableOpacity>
                 </View>
               ) : randomIndex == 2 ? (
@@ -435,7 +518,7 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[0]].content)
                     }
                   >
-                    <Text>{item.wrongVi[WrongChoose[0]].content}</Text>
+                    <Text style={Styles.chooseTitle}>{item.wrongVi[WrongChoose[0]].content}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -443,13 +526,13 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[1]].content)
                     }
                   >
-                    <Text>{item.wrongVi[WrongChoose[1]].content}</Text>
+                    <Text style={Styles.chooseTitle}>{item.wrongVi[WrongChoose[1]].content}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
                     onPress={() => onChangeTextVi(item.vi)}
                   >
-                    <Text>{item.vi}</Text>
+                    <Text style={Styles.chooseTitle}>{item.vi}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -457,7 +540,7 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[2]].content)
                     }
                   >
-                    <Text>{item.wrongVi[WrongChoose[2]].content}</Text>
+                    <Text style={Styles.chooseTitle}>{item.wrongVi[WrongChoose[2]].content}</Text>
                   </TouchableOpacity>
                 </View>
               ) : (
@@ -468,7 +551,7 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[0]].content)
                     }
                   >
-                    <Text>{item.wrongVi[WrongChoose[0]].content}</Text>
+                    <Text style={Styles.chooseTitle}>{item.wrongVi[WrongChoose[0]].content}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -476,7 +559,7 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[1]].content)
                     }
                   >
-                    <Text>{item.wrongVi[WrongChoose[1]].content}</Text>
+                    <Text style={Styles.chooseTitle}>{item.wrongVi[WrongChoose[1]].content}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
@@ -484,13 +567,13 @@ export default function excercise(route) {
                       onChangeTextVi(item.wrongVi[WrongChoose[2]].content)
                     }
                   >
-                    <Text>{item.wrongVi[WrongChoose[2]].content}</Text>
+                    <Text style={Styles.chooseTitle}>{item.wrongVi[WrongChoose[2]].content}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={Styles.chosseBox}
                     onPress={() => onChangeTextVi(item.vi)}
                   >
-                    <Text>{item.vi}</Text>
+                    <Text style={Styles.chooseTitle}>{item.vi}</Text>
                   </TouchableOpacity>
                 </View>
               )
@@ -498,7 +581,7 @@ export default function excercise(route) {
               <CheckVi item={item}></CheckVi>
             )}
           </View>
-          {textVi != null ? Next : ""}
+          {textVi != null ? Next : null}
         </View>
       );
     }
@@ -543,8 +626,8 @@ const Styles = StyleSheet.create({
     backgroundColor: "white",
   },
   title: {
-    fontSize: 27,
-    fontWeight: '700',
+    fontSize: 24,
+    fontWeight: "700",
     color: "black",
     width: "100%",
     textAlign: "center",
@@ -552,7 +635,7 @@ const Styles = StyleSheet.create({
   },
   alertResult: {
     fontSize: 20,
-    fontWeight: '600',
+    fontWeight: "600",
     textAlign: "center",
     marginTop: 10,
     marginBottom: 10,
@@ -560,35 +643,33 @@ const Styles = StyleSheet.create({
   },
   inputt: {
     fontSize: 20,
-    fontWeight: '500',
-    color: "green",
+    fontWeight: "500",
+    color: "#052b00",
     paddingHorizontal: 5,
     paddingVertical: 2,
     borderWidth: 2,
     borderRadius: 4,
     marginTop: 10,
     marginBottom: 10,
-  },
-  Button: {
-    fontSize: 20,
-    borderRadius: 5,
+    backgroundColor: "#00000003",
   },
   AlrertBox: {
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
+    // height:"80%",
     borderWidth: 2,
     borderRadius: 10,
     marginTop: 20,
   },
   percent: {
     fontSize: 27,
-    fontWeight: '600',
+    fontWeight: "600",
     marginTop: 5,
   },
   finalRight: {
     fontSize: 20,
-    fontWeight: '600',
+    fontWeight: "600",
     marginTop: 20,
   },
   chosseBox: {
@@ -597,10 +678,13 @@ const Styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "#8080808f",
     backgroundColor: "#fcfcfc30",
-    fontSize: 18,
     borderRadius: 8,
-    textTransform: "capitalize",
-    fontWeight: '600',
     textAlign: "center",
   },
+  chooseTitle:{
+    fontSize:20,
+    fontWeight:"700",
+    color:"#000000e3",
+    textTransform:"capitalize"
+  }
 });

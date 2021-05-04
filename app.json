@@ -1,15 +1,16 @@
 {
-  "name": "enlish",
-  "displayName": "enlish",
   "expo": {
-    "name": "enlish",
-    "slug": "enlish",
-    "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "android": {
-      "package": "eng.gtl"
-    }
+   "name": "GTL LEARN ENGLISH",
+   "icon": "./asset/image/gtlLogo.png",
+   "version": "1.0.0",
+   "slug": "learn-by-your-ways",
+   "ios": {
+     "bundleIdentifier": "com.longG.Elearn",
+     "buildNumber": "1.0.0"
+   },
+   "android": {
+     "package": "com.longG.Elearn",
+     "versionCode": 1
+   }
   }
 }

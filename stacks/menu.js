@@ -4,7 +4,7 @@ import Menu from "../screen/menu"
 
 const Stack = createStackNavigator()
 
-export default function menu(){
+export default function MenuStack(){
     return <Stack.Navigator>
         <Stack.Screen name="Menu" component={Menu}></Stack.Screen>
     </Stack.Navigator>

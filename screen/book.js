@@ -20,7 +20,7 @@ const MainBook = (route) => {
       <View style={{ flex: 1 }}>
         <ScrollView style={{ backgroundColor: "white"}}>
           <View>
-            <Image source={item.url} style={styles.image} />
+            <Image source={{uri:item.url}} style={styles.image} />
           </View>
           <View>
             <Text style={[styles.title, styles.black]}>{item.name}</Text>
@@ -46,7 +46,7 @@ const MainBook = (route) => {
           style={{ backgroundColor: "#000000e6"}}
         >
           <View>
-            <Image source={item.url} style={styles.image} />
+            <Image source={{uri:item.url}} style={styles.image} />
           </View>
           <View>
             <Text style={[styles.title, {color:"white"}]}>{item.name}</Text>

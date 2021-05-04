@@ -10,7 +10,7 @@ const Audio = ({ navigation }) => {
   React.useEffect(() => {
     // http://localhost:3000/audiosDB
     // https://my-json-server.typicode.com/gtl-201/serverJson/
-    fetch(MainUrl)
+    fetch('https://my-json-server.typicode.com/gtl-201/serverJson/audiosDB')
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))

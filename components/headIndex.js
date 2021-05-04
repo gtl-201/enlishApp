@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import Bg from "../asset/image/c739830ada7ea71fefed868be577b57c.jpg";
-import Avt from "../asset/icons/gtlLogo2.jpg";
+import Avt from "../asset/image/avt.jpg";
 import Avt2 from "../asset/icons/gtlLogo.jpg";
 
 
@@ -9,7 +9,7 @@ const Head = () => {
   return (
     <View style={[styles.container,{marginBottom:30,}]}>
       <Image source={Bg} style={styles.backgroundImg}></Image>
-      <Image source={Bg} style={styles.circleAvt}></Image>
+      <Image source={Avt} style={styles.circleAvt}></Image>
       <Text style={styles.title}>gtl learn English</Text>
     </View>
   );

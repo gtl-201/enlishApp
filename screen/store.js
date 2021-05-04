@@ -21,7 +21,7 @@ const Store = (props) => {
   const [isLoading, setLoading] = useState(true);
   const [StoreDB, setData] = useState([]);
   React.useEffect(() => {
-    fetch("http://localhost:3000/storeDB")
+    fetch("https://my-json-server.typicode.com/gtl-201/serverJson/storeDB")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))
@@ -29,46 +29,45 @@ const Store = (props) => {
   }, []);
 
   return (
-    <ScrollView style={{ flex: 1 }}>
+    <ScrollView>
       <View>
         <Image
           source={BookStoreBanner}
           style={{ width: "100%", height: 600 }}
         ></Image>
-
-        <View style={Styles.boxOut}>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: 15,
-            }}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Text>
-                <Icon
-                  name="eye-outline"
-                  size={19}
-                  color="#8560f7"
-                  style={{ marginRight: 5 }}
-                ></Icon>
-              </Text>
-              <Text
-                style={{ fontSize: 19, fontWeight: "500", color: "#8560f7" }}
-              >
-                Grid View
-              </Text>
-            </View>
+      </View>
+      <View style={Styles.boxOut}>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: 15,
+          }}
+        >
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Text>
               <Icon
-                name="search-outline"
+                name="eye-outline"
                 size={19}
-                color="#0f00ff"
-                fontWeight={600}
+                color="#8560f7"
+                style={{ marginRight: 5 }}
               ></Icon>
             </Text>
+            <Text style={{ fontSize: 19, fontWeight: "500", color: "#8560f7" }}>
+              Grid View
+            </Text>
           </View>
+          <Text>
+            <Icon
+              name="search-outline"
+              size={19}
+              color="#0f00ff"
+              fontWeight={600}
+            ></Icon>
+          </Text>
+        </View>
+        <View>
           <FlatList
             numColumns={1}
             data={StoreDB}
@@ -80,7 +79,7 @@ const Store = (props) => {
               return (
                 <View style={Styles.boxIn}>
                   <View style={Styles.bookView}>
-                    <Image source={item.url} style={Styles.book} />
+                    <Image source={{ uri: item.url }} style={Styles.book} />
                   </View>
                   <View
                     style={{ justifyContent: "space-between", width: "60%" }}
@@ -114,9 +113,10 @@ const Store = (props) => {
                 </View>
               );
             }}
+            contentContainerStyle={{height:"100%"}}
           />
-          {/* <Text>xyz</Text> */}
         </View>
+        {/* <Text>xyz</Text> */}
       </View>
     </ScrollView>
   );
@@ -125,6 +125,7 @@ const Store = (props) => {
 const Styles = StyleSheet.create({
   boxOut: {
     width: "100%",
+
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     marginTop: -40,
@@ -136,12 +137,14 @@ const Styles = StyleSheet.create({
   },
   boxIn: {
     width: "100%",
+    height: 200,
     flexDirection: "row",
     marginBottom: 25,
     justifyContent: "space-between",
   },
   bookView: {
     width: "36%",
+    height: "100%",
     zIndex: 3,
     borderRadius: 3,
     shadowColor: "#000",

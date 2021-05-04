@@ -3,9 +3,9 @@
     {
       "id": 1,
       "title": "Job In Life",
-      "VA": 40,
-      "AV": 50,
-      "L": 70
+      "VA": 100,
+      "AV": 100,
+      "L": 100
     },
     {
       "id": 2,
@@ -159,11 +159,13 @@
       "id": 14
     }
   ],
+
+
   "exerciseUnit1DB": [
     {
       "id": 1,
       "type": "",
-      "eng": "bodyguard",
+      "eng": "Bodyguard",
       "vi": "vệ sĩ",
       "na": "ˈbɒdɪˌgɑːd",
       "wrongVi": [
@@ -196,7 +198,7 @@
     {
       "id": 2,
       "type": "",
-      "eng": "judge",
+      "eng": "Judge",
       "vi": "quan tòa",
       "na": "ˈʤʌʤ",
       "wrongVi": [
@@ -229,7 +231,7 @@
     {
       "id": 3,
       "type": "",
-      "eng": "programmer",
+      "eng": "Programmer",
       "vi": "lập trình viên",
       "na": "ˈprəʊgræmə",
       "wrongVi": [
@@ -262,7 +264,7 @@
     {
       "id": 4,
       "type": "",
-      "eng": "lawyer",
+      "eng": "Lawyer",
       "vi": "luật sư",
       "na": "ˈlɔːjə",
       "wrongVi": [
@@ -295,7 +297,7 @@
     {
       "id": 5,
       "type": "",
-      "eng": "software developer",
+      "eng": "Software developer",
       "vi": "nhân viên phát triển phần mềm",
       "na": "ˈsɒftweə dɪˈvɛləpə",
       "wrongVi": [
@@ -328,7 +330,7 @@
     {
       "id": 6,
       "type": "",
-      "eng": "web developer",
+      "eng": "Web developer",
       "vi": "nv phát triển mạng",
       "na": "wɛb develope",
       "wrongVi": [
@@ -361,7 +363,7 @@
     {
       "id": 7,
       "type": "",
-      "eng": "accountant",
+      "eng": "Accountant",
       "vi": "kế toán",
       "na": "əˈkaʊntənt",
       "wrongVi": [
@@ -394,7 +396,7 @@
     {
       "id": 8,
       "type": "",
-      "eng": "marketing director",
+      "eng": "Marketing director",
       "vi": "gám đốc marketing",
       "na": "ˈmɑːkɪtɪŋ dɪˈrɛktə",
       "wrongVi": [
@@ -425,6 +427,8 @@
       ]
     }
   ],
+
+
   "storeDB": [
     {
       "id": 1,
