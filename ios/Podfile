@@ -21,4 +21,6 @@ target 'enlish' do
   #  post_install do |installer|
   #    flipper_post_install(installer)
   #  end
+  pod 'TextToSpeech', :path => '../node_modules/react-native-tts'
+
 end
